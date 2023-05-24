@@ -1,0 +1,33 @@
+{
+    "section1": {
+        "files": [
+            {
+                "url": "assets/images/background.jpg",
+                "type": "image",
+                "key": "background"
+            },
+            {
+                "url": "assets/images/coinbg.png",
+                "type": "image",
+                "key": "coinbg"
+            },
+            {
+                "url": "assets/images/player-bg.png",
+                "type": "image",
+                "key": "player-bg"
+            },
+            {
+                "url": "assets/images/round-aero.png",
+                "type": "image",
+                "key": "round-aero"
+            }
+        ]
+    },
+    "meta": {
+        "app": "Phaser Editor 2D - Asset Pack Editor",
+        "contentType": "phasereditor2d.pack.core.AssetContentType",
+        "url": "https://phasereditor2d.com",
+        "version": 2,
+        "showAllFilesInBlocks": false
+    }
+}
