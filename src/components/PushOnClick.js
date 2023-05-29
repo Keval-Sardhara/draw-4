@@ -3,6 +3,9 @@
 
 /* START OF COMPILED CODE */
 
+/* START-USER-IMPORTS */
+/* END-USER-IMPORTS */
+
 class PushOnClick extends UserComponent {
 
 	constructor(gameObject) {
@@ -27,9 +30,7 @@ class PushOnClick extends UserComponent {
 	/* START-USER-CODE */
 
 	awake() {
-
 		this.gameObject.setInteractive().on("pointerdown", () => {
-
 			this.scene.add.tween({
 				targets: this.gameObject,
 				scaleX: "*=0.8",

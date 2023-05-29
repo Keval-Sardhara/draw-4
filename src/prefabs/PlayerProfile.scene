@@ -1,42 +1,71 @@
 {
     "id": "39d8806f-79fe-4ca6-8311-90b639cd21a0",
-    "settings": {
-        "createMethodName": "",
-        "preloadMethodName": "",
-        "compilerOutputLanguage": "JAVA_SCRIPT",
-        "exportClass": false,
-        "autoImport": false,
-        "generateAwakeHandler": false,
-        "compilerInsertSpaces": false,
-        "compilerTabSize": 4,
-        "borderWidth": 800,
-        "borderHeight": 600,
-        "borderX": 0,
-        "borderY": 0
-    },
     "sceneType": "PREFAB",
+    "settings": {
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": ""
+    },
     "displayList": [
         {
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "type": "Image",
-            "id": "a1752548-f4a8-483b-807e-e3a22e8b301a",
-            "label": "player_bg",
+            "type": "Container",
+            "id": "01f9f476-2920-41ed-8154-2853dca0ddbb",
+            "label": "container_1",
             "components": [],
-            "texture": {
-                "key": "player-bg"
-            },
-            "x": 0,
-            "y": 0,
-            "scaleX": 0.5,
-            "scaleY": 0.5
+            "list": [
+                {
+                    "type": "Container",
+                    "id": "0661113d-b24a-4d64-a997-f01753df3f6a",
+                    "label": "playerInfo",
+                    "scope": "CLASS",
+                    "components": [],
+                    "list": [
+                        {
+                            "type": "Text",
+                            "id": "abcc4046-eda8-48f1-bc0d-58ee6be4f52f",
+                            "label": "txtPlayerName",
+                            "scope": "CLASS",
+                            "components": [],
+                            "x": 2,
+                            "y": -42,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "New text",
+                            "align": "center",
+                            "fontSize": "12px"
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "cdb5382f-586d-49e9-9416-a3a51121c7c5",
+                    "label": "playerProfile",
+                    "scope": "CLASS",
+                    "components": [],
+                    "y": 4,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "1ebac347-341a-4d3e-9733-8f3afc1d1723",
+                            "label": "player_bg",
+                            "scope": "CLASS",
+                            "components": [],
+                            "texture": {
+                                "key": "player-bg"
+                            },
+                            "scaleX": 0.3,
+                            "scaleY": 0.3
+                        }
+                    ]
+                }
+            ]
         }
     ],
+    "plainObjects": [],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
-        "contentType": "phasereditor2d.core.scene.SceneContentType"
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
     }
 }

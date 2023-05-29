@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Draw 4 - Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!-- Plugins -->
+	<script src="https://backend.rummy24.com/socket.io/socket.io.js"></script>
+
+	<style>
+		body {
+			background: #e7e7e7;
+			margin: 0;
+			padding: 0;
+		}
+
+		.prelogo {
+			width: auto;
+			height: auto;
+			text-align: center;
+		}
+	</style>
+
+</head>
+
+<body style="background-color: #242424;">
+	<div>
+		<div class="container" id="enterform">
+			</br>
+			<div class="form-group">
+				<input type="text" class="form-control" id="sMobile" value="6357201030" placeholder="Enter login id">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="sPassword" value="12345678" placeholder="Enter Password">
+			</div>
+			<div class="form-select form-group">
+				<select id="eGameType">
+					<option>Game Type</option>
+					<option value="cash">Cash</option>
+					<option selected value="free">free</option>
+				</select>
+				<select id="nTotalPlayerCount">
+					<option>Max Player</option>
+					<option selected value="2">2</option>
+					<option value="4">4</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<input type="number" class="form-control" id="nTableFee" value= "0" placeholder="Table Fee">
+			</div>
+
+		</div>
+
+		<div class="container" id="enterform">
+			</br>
+			<div class="form-group">
+				<input type="text" class="form-control" id="sMobile1" value="9998887774" placeholder="Enter login id">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" id="sPassword1" value="87654321" placeholder="Enter Password">
+			</div>
+			<center><button type="submit" autofocus class="btn btn-default" onclick="makeAuthAndStartGame(1)">Join
+					1</button>
+			</center>
+			<br>
+			<center><button type="submit" autofocus class="btn btn-default" onclick="makeAuthAndStartGame(2)">Join
+					2</button>
+			</center>
+		</div>
+	</div>
+
+	<script>
+		// login 
+		var sRootUrl = "https://uno-backend.lc.webdevprojects.cloud/api/v1";
+
+		function makeAuthAndStartGame(player) {
+			let sMobile;
+			let sPassword;
+			if (player == 1) {
+				sMobile = $("#sMobile").val();
+				sPassword = $("#sPassword").val();
+			} else {
+				sMobile = $("#sMobile1").val();
+				sPassword = $("#sPassword1").val();
+			}
+
+			loginObj = $.ajax({
+				url: sRootUrl + "/auth/login",
+				type: 'POST',
+				dataType: 'json',
+				data: JSON.stringify({ "sMobile": sMobile, "sPassword": sPassword }),
+				contentType: 'application/json; charset=utf-8',
+				success: function (result) {
+
+					var sAuthToken = loginObj.getResponseHeader('authorization');
+					joinTable(sAuthToken);
+				},
+				error: function (error) {
+					console.log(error);
+				}
+			});
+		}
+
+		function joinTable(authToken) {
+			var settings = {
+				"url": sRootUrl + "/game/table/join",
+				"method": "POST",
+				"timeout": 0,
+				"headers": {
+					"Authorization": authToken,
+					"Content-Type": "application/json"
+				},
+				"data": JSON.stringify({
+					"eGameType": $("#eGameType option:selected").val(),
+					"nTableFee": $("#nTableFee").val(),
+					"nTotalPlayerCount": $("#nTotalPlayerCount option:selected").val()
+				}),
+			};
+			console.log(settings);
+
+			$.ajax(settings).done(function (response) {
+				console.log("JT", response.data);
+				const oData = response.data;
+				const oPlayerData = oData.playerData;
+				const gameUrl = "http://127.0.0.1:4253/editor/external/?";
+				let passString = "iBattleId=" + oData.tableData.iBattleId + "&";
+				passString = passString + "sPlayerID=" + oData.playerData.iPlayerId + "&";
+				passString = passString + "sAuthToken=" + authToken + "&";
+				passString = passString + "nTotalPlayerCount=" + oData.tableData.nTotalPlayerCount + "&";
+				passString = passString + "sPlayerName=" + oData.playerData.sPlayerName + "&";
+				passString = passString + "sMobile=" + $("#sMobile").val() + "&";
+				window.open(gameUrl + passString, "", 'width = 800, height = 600');
+			});
+		}
+	</script>
+</body>
+
+</html>
