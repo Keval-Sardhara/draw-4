@@ -13,9 +13,9 @@
             "properties": []
         },
         {
-            "name": "CardHover",
+            "name": "CardPreset",
             "baseClass": "UserComponent",
-            "gameObjectType": "Phaser.GameObjects.Image",
+            "gameObjectType": "Phaser.GameObjects.Container",
             "properties": []
         }
     ],

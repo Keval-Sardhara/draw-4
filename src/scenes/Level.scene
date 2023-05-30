@@ -177,8 +177,6 @@
             "useGameObjectName": true,
             "scope": "CLASS",
             "components": [],
-            "x": 398,
-            "y": 465,
             "list": []
         },
         {
@@ -188,8 +186,6 @@
             "useGameObjectName": true,
             "scope": "CLASS",
             "components": [],
-            "x": 400,
-            "y": 260,
             "list": []
         },
         {
@@ -198,8 +194,6 @@
             "label": "tempCardContainer",
             "scope": "CLASS",
             "components": [],
-            "x": 591,
-            "y": 408,
             "list": []
         }
     ],

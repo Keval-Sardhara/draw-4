@@ -1,0 +1,40 @@
+{
+    "id": "d4ce942e-5649-4f11-bbed-450f42c8ea9c",
+    "sceneType": "PREFAB",
+    "settings": {
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": ""
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "5212bac9-5909-491a-80bd-15585cf0193f",
+            "label": "container_1",
+            "components": [
+                "CardPreset"
+            ],
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "18c39ab0-0182-418b-abf3-f82f6823b913",
+                    "label": "cardImage",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "card-blue-0"
+                    },
+                    "scaleX": 0.2,
+                    "scaleY": 0.2
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

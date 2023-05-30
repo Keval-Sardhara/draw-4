@@ -297,6 +297,16 @@
                 "key": "CardManager"
             },
             {
+                "url": "src/prefabs/CardPrefab.js",
+                "type": "script",
+                "key": "CardPrefab"
+            },
+            {
+                "url": "src/components/CardPreset.js",
+                "type": "script",
+                "key": "CardPreset"
+            },
+            {
                 "url": "assets/images/coinbg.png",
                 "type": "image",
                 "key": "coinbg"

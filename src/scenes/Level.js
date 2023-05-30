@@ -88,15 +88,15 @@ class Level extends Phaser.Scene {
 		playerProfileContainer.add(playerProfile_4);
 
 		// playerHandcontainer
-		const playerHandcontainer = this.add.container(398, 465);
+		const playerHandcontainer = this.add.container(0, 0);
 		playerHandcontainer.name = "playerHandcontainer";
 
 		// discardPileTopCardContainer
-		const discardPileTopCardContainer = this.add.container(400, 260);
+		const discardPileTopCardContainer = this.add.container(0, 0);
 		discardPileTopCardContainer.name = "discardPileTopCardContainer";
 
 		// tempCardContainer
-		const tempCardContainer = this.add.container(591, 408);
+		const tempCardContainer = this.add.container(0, 0);
 
 		this.backgroundContainer = backgroundContainer;
 		this.round_aero = round_aero;
@@ -165,14 +165,21 @@ class Level extends Phaser.Scene {
 	}
 	reqDrawCard() {
 		console.log("onClickdrawCard")
-		this.oSocketManager.socket.emit(this.oGameManager.iBattleId, {sTaskName: "reqDrawCard", oData : {}
+		this.oSocketManager.socket.emit(this.oGameManager.iBattleId, {
+			sTaskName: "reqDrawCard", oData: {}
 		}, (error, data) => {
 			console.warn("Requested Card", error, data);
 		})
 	}
-	// this.oSocketManager.oRootSocketConn.emit(this.oSocketManager.iTableId, { sEventName: 'reqHitCard', oData: { iUserId: this.ownPlayerId, cardId: lastCard, sGroup: agroups, aCardId: allCards } }, (response, error) => {
-	// 	console.log("------------>>>>>> sendCards ", response, error);
-	// });
+	sendDiscardPileCard(discardcard) {
+		console.log(discardcard);
+		this.oSocketManager.socket.emit(this.oGameManager.iBattleId, {
+			sTaskName: "reqDiscardCard", oData: { iCardId: discardcard }
+		}, (error, data) => {
+			console.warn("dropCard Card", error, data);
+		})
+	}
+
 	/* END-USER-CODE */
 }
 
