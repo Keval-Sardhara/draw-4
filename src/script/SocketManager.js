@@ -49,6 +49,7 @@ class SocketManager {
             switch (data.sTaskName) {
                 case "resTableState":
                     console.log("resTableState :", data);
+                    this.oScene.oTweenManager.roundAeroDefault();
                     this.oScene.oPlayerManager.setPlayers(data.oData);
                     break;
                 case "resHand":

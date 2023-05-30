@@ -1,7 +1,6 @@
 class CardManager {
     constructor(oScene) {
         this.oScene = oScene;
-
     }
     setPlayerHand(data) {
         let nPlayerCard = 0;

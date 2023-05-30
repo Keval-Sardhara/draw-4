@@ -19,6 +19,7 @@
                     "label": "playerInfo",
                     "scope": "CLASS",
                     "components": [],
+                    "y": 1,
                     "list": [
                         {
                             "type": "Text",
@@ -33,6 +34,17 @@
                             "text": "New text",
                             "align": "center",
                             "fontSize": "12px"
+                        },
+                        {
+                            "type": "Image",
+                            "id": "606b11a5-b744-4901-b69c-4eb098d4e4d7",
+                            "label": "profile_icon",
+                            "components": [],
+                            "texture": {
+                                "key": "profile-icon"
+                            },
+                            "scaleX": 0.3,
+                            "scaleY": 0.3
                         }
                     ]
                 },
@@ -42,7 +54,7 @@
                     "label": "playerProfile",
                     "scope": "CLASS",
                     "components": [],
-                    "y": 4,
+                    "y": 6,
                     "list": [
                         {
                             "type": "Image",
@@ -53,10 +65,22 @@
                             "texture": {
                                 "key": "player-bg"
                             },
-                            "scaleX": 0.3,
+                            "scaleX": 0.27,
                             "scaleY": 0.3
                         }
                     ]
+                },
+                {
+                    "type": "Image",
+                    "id": "05341893-1adc-49fd-b051-83ef85f62b6e",
+                    "label": "timer_ring",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "timer-ring"
+                    },
+                    "scaleX": 0.31,
+                    "scaleY": 0.29
                 }
             ]
         }

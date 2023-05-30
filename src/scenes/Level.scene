@@ -33,6 +33,7 @@
                     "type": "Image",
                     "id": "b08a28bf-8c24-40af-a1f2-6abaa7f195fb",
                     "label": "round_aero",
+                    "scope": "CLASS",
                     "components": [],
                     "texture": {
                         "key": "round-aero"

@@ -352,6 +352,11 @@
                 "key": "PlayerProfile"
             },
             {
+                "url": "assets/images/profile-icon.png",
+                "type": "image",
+                "key": "profile-icon"
+            },
+            {
                 "url": "assets/images/buttons/red botten.png",
                 "type": "image",
                 "key": "red botten"
@@ -370,6 +375,16 @@
                 "url": "src/script/SoundManager.js",
                 "type": "script",
                 "key": "SoundManager"
+            },
+            {
+                "url": "assets/images/timer-ring.png",
+                "type": "image",
+                "key": "timer-ring"
+            },
+            {
+                "url": "src/script/TweenManager.js",
+                "type": "script",
+                "key": "TweenManager"
             },
             {
                 "url": "src/script/UiManager.js",

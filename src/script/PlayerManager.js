@@ -3,12 +3,12 @@ class PlayerManager {
         this.oScene = oScene;
         this.playerPrefab = [this.oScene.ownPlayerProfile, this.oScene.playerProfile_2, this.oScene.playerProfile_3, this.oScene.playerProfile_4];
         this.playerList = new Map();
-
+        this.playerPrefabList = new Map();
     }
     //check own player is in map or not
     //function call user join req  
     setOwnPlayer() {
-         // player is not in map so add player
+        // player is not in map so add player
         if (!this.playerList.has(this.oScene.oGameManager.ownPlayerId)) {
             //add player in map
             this.addPlayer(this.oScene.oGameManager.ownPlayerId, this.oScene.oGameManager.sPlayerName)
@@ -24,11 +24,13 @@ class PlayerManager {
         // check player in map
         if (this.playerList.has(id)) {
             this.playerPrefab[seatNo].setInfo(this.playerPrefab[seatNo], this.playerList.get(id))
+            this.playerPrefab[seatNo].setName(id)
         }
     }
     setOpponentPlayerSeat(id, seatNo) {
         if (this.playerList.has(id)) {
             this.playerPrefab[seatNo].setInfo(this.playerPrefab[seatNo], this.playerList.get(id))
+            this.playerPrefab[seatNo].setName(id)
         }
     }
 
@@ -39,9 +41,9 @@ class PlayerManager {
                 // console.log("data.aPlayer[i].iPlayerId",data.aPlayer[i].iPlayerId,data.aPlayer[i].nSeat);
                 this.addPlayer(data.aPlayer[i].iPlayerId, data.aPlayer[i].sUserName)
                 this.setOpponentPlayerSeat(data.aPlayer[i].iPlayerId, j++)
-            }  
+            }
             else if (data.aPlayer[i].iPlayerId == this.oScene.oGameManager.ownPlayerId) {
-            //     console.log("data.aPlayer[i].iPlayerId",data.aPlayer[i].iPlayerId,data.aPlayer[i].nSeat);
+                //     console.log("data.aPlayer[i].iPlayerId",data.aPlayer[i].iPlayerId,data.aPlayer[i].nSeat);
                 this.addPlayer(data.aPlayer[i].iPlayerId, data.aPlayer[i].sUserName)
                 this.setOwnPlayerSeat(data.aPlayer[i].iPlayerId, 0)
             }
@@ -53,7 +55,6 @@ class PlayerManager {
             this.playerPrefab[1].y = 100;
             this.oScene.playerProfile_3.visible = false;
             this.oScene.playerProfile_4.visible = false;
-
         } else if (totalPlayer == 3) {
 
 
@@ -61,15 +62,32 @@ class PlayerManager {
 
         }
     }
-    changePlayerTurn(playerTurnData){
+    changePlayerTurn(playerTurnData) {
         this.currentPlayerTurn = playerTurnData.iPlayerId;
-        if(this.currentPlayerTurn ==  this.oScene.oGameManager.ownPlayerId){
-            this.oScene.oGameManager.isOwnTurn = true;
-            console.log("%c isOwnTurn"," color: green");
-        }else{
-            console.log("%c isOpponentTurn"," color: green");
+        // if (this.currentPlayerTurn == this.oScene.oGameManager.ownPlayerId) {
+        //     this.oScene.oGameManager.isOwnTurn = true;
+        //     console.log(this.playerPrefab[0].name, this.playerPrefab[0]);
+        //     console.log("%c isOwnTurn", " color: green");
+        // } else {
+        //     console.log(this.playerPrefab[1].name, this.playerPrefab[1]);
+        //     console.log("%c isOpponentTurn", " color: green");
+        // }
+
+        for (let i = 0; i < this.playerList.size; i++) {
+            for (let j = 0; j < this.playerList.size; j++) {
+                if (this.playerPrefab[j].name !== this.currentPlayerTurn) {
+                    this.playerPrefab[j].intervalTimeReset();
+                }
+            }
+
+            if (this.playerPrefab[i].name === this.currentPlayerTurn) {
+                this.playerPrefab[i].startTimerInit(this.playerPrefab[i].x, this.playerPrefab[i].y, playerTurnData)
+                break;
+            }
         }
+
+
     }
-    
+
 
 }

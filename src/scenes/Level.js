@@ -99,6 +99,7 @@ class Level extends Phaser.Scene {
 		const tempCardContainer = this.add.container(591, 408);
 
 		this.backgroundContainer = backgroundContainer;
+		this.round_aero = round_aero;
 		this.draw_button = draw_button;
 		this.draw4_button = draw4_button;
 		this.draw4_card = draw4_card;
@@ -117,6 +118,8 @@ class Level extends Phaser.Scene {
 
 	/** @type {Phaser.GameObjects.Container} */
 	backgroundContainer;
+	/** @type {Phaser.GameObjects.Image} */
+	round_aero;
 	/** @type {Phaser.GameObjects.Image} */
 	draw_button;
 	/** @type {Phaser.GameObjects.Image} */
@@ -157,6 +160,8 @@ class Level extends Phaser.Scene {
 		this.oGameManager = new GameManager(this);
 		this.oUiManager = new UiManager(this);
 		this.oCardManager = new CardManager(this);
+		this.oTweenManager = new TweenManager(this);
+
 	}
 	reqDrawCard() {
 		console.log("onClickdrawCard")
