@@ -54,7 +54,7 @@ class SocketManager {
                     break;
                 case "resHand":
                     console.log("resHand :", data);
-                    this.oScene.oCardManager.setPlayerHand(data.oData);
+                    this.oScene.oTweenManager.cardDistribute(data.oData);
                     break;
                 case "resDiscardPileTopCard":
                     console.log("resDiscardPileTopCard :", data);
@@ -85,6 +85,7 @@ class SocketManager {
                     break;
                 case "resGameOver":
                     console.log("resGameOver:", data);
+                    this.oScene.showResultScreen(data.oData);
                     break;
                 case "playerDisconnected":
                     console.log("playerDisconnected:", data);

@@ -2,8 +2,10 @@ class CardManager {
     constructor(oScene) {
         this.oScene = oScene;
     }
-     setPlayerHand(data) {
+
+    setPlayerHand(data) {
         let nPlayerCard = 0;
+               
         for (let i = 0; i < data.aHand.length; i++) {
             this.tempCard = this.oScene.add.existing(new CardPrefab(this.oScene, (this.oScene.playerHandcontainer.getAll().length * this.oScene.oGameManager.cardGap), 510));
             this.tempCard.cardImage.setTexture("card-" + data.aHand[nPlayerCard].eColor + "-" + data.aHand[nPlayerCard].nLabel);
@@ -14,7 +16,7 @@ class CardManager {
         console.log(this.oScene.playerHandcontainer);
         this.oScene.playerHandcontainer.x = (800 - ((this.oScene.playerHandcontainer.getAll().length - 1) * this.oScene.oGameManager.cardGap)) / 2;
     }
-   setDiscardPileTopCard(data) {
+    setDiscardPileTopCard(data) {
         this.tempDiscardCard = this.oScene.add.existing(new CardPrefab(this.oScene, 400, 265));
         this.tempDiscardCard.cardImage.setTexture("card-" + data.eColor + "-" + data.nLabel);
         this.tempDiscardCard.setName(data.iCardId);
@@ -34,7 +36,7 @@ class CardManager {
             this.oScene.playerHandcontainer.x = (800 - ((this.oScene.playerHandcontainer.getAll().length - 1) * this.oScene.oGameManager.cardGap)) / 2;
         }
     }
-    arrangeHandCardPosition(){
+    arrangeHandCardPosition() {
         console.log("arrange succesfully");
     }
 }

@@ -27,9 +27,9 @@ class Level extends Phaser.Scene {
 		const backgroundContainer = this.add.container(400, 259);
 
 		// background
-		const background = this.add.image(1, 42, "background");
+		const background = this.add.image(0, 41, "background");
 		background.scaleX = 0.42;
-		background.scaleY = 0.55;
+		background.scaleY = 0.555;
 		backgroundContainer.add(background);
 
 		// round_aero
@@ -98,6 +98,94 @@ class Level extends Phaser.Scene {
 		// tempCardContainer
 		const tempCardContainer = this.add.container(0, 0);
 
+		// cardGroupContainer
+		const cardGroupContainer = this.add.container(325, 0);
+
+		// winnerContainer
+		const winnerContainer = this.add.container(0, 0);
+		winnerContainer.visible = false;
+
+		// winnerBackground
+		const winnerBackground = this.add.image(400, 300, "background");
+		winnerBackground.scaleX = 0.42;
+		winnerBackground.scaleY = 0.555;
+		winnerContainer.add(winnerBackground);
+
+		// text_1
+		const text_1 = this.add.text(400, 67, "", {});
+		text_1.setOrigin(0.5, 0.5);
+		text_1.text = "GAME OVER";
+		text_1.setStyle({ "fontSize": "42px" });
+		winnerContainer.add(text_1);
+
+		// text_2
+		const text_2 = this.add.text(400, 211, "", {});
+		text_2.setOrigin(0.5, 0.5);
+		text_2.text = "Rank";
+		text_2.setStyle({ "fontSize": "25px" });
+		winnerContainer.add(text_2);
+
+		// coinbg
+		const coinbg = this.add.image(400, 519, "coinbg");
+		coinbg.scaleX = 0.7;
+		coinbg.scaleY = 0.7;
+		coinbg.tintFill = true;
+		coinbg.tintTopLeft = 11498742;
+		coinbg.tintTopRight = 11498742;
+		coinbg.tintBottomLeft = 11498742;
+		coinbg.tintBottomRight = 11498742;
+		winnerContainer.add(coinbg);
+
+		// text_3
+		const text_3 = this.add.text(400, 519, "", {});
+		text_3.setOrigin(0.5, 0.5);
+		text_3.text = "Home";
+		winnerContainer.add(text_3);
+
+		// txtRank
+		const txtRank = this.add.text(400, 170, "", {});
+		txtRank.setOrigin(0.5, 0.5);
+		txtRank.text = "1";
+		txtRank.setStyle({ "fontSize": "45px" });
+		winnerContainer.add(txtRank);
+
+		// winnerTitleContainer
+		const winnerTitleContainer = this.add.container(400, 260);
+		winnerContainer.add(winnerTitleContainer);
+
+		// winnerTitleBackgound
+		const winnerTitleBackgound = this.add.rectangle(0, 0, 128, 128);
+		winnerTitleBackgound.scaleX = 6;
+		winnerTitleBackgound.scaleY = 0.27;
+		winnerTitleBackgound.alpha = 0.4;
+		winnerTitleBackgound.isFilled = true;
+		winnerTitleBackgound.fillColor = 0;
+		winnerTitleContainer.add(winnerTitleBackgound);
+
+		// txtNumberTitle
+		const txtNumberTitle = this.add.text(-335, 0, "", {});
+		txtNumberTitle.setOrigin(0.5, 0.5);
+		txtNumberTitle.text = "No.";
+		winnerTitleContainer.add(txtNumberTitle);
+
+		// txtNameTitle
+		const txtNameTitle = this.add.text(-243, 0, "", {});
+		txtNameTitle.setOrigin(0, 0.5);
+		txtNameTitle.text = "Name";
+		winnerTitleContainer.add(txtNameTitle);
+
+		// txtScoreTitle
+		const txtScoreTitle = this.add.text(86, 0, "", {});
+		txtScoreTitle.setOrigin(0.5, 0.5);
+		txtScoreTitle.text = "Score";
+		winnerTitleContainer.add(txtScoreTitle);
+
+		// txtPrizeTitle
+		const txtPrizeTitle = this.add.text(332, 0, "", {});
+		txtPrizeTitle.setOrigin(0.5, 0.5);
+		txtPrizeTitle.text = "Prize";
+		winnerTitleContainer.add(txtPrizeTitle);
+
 		this.backgroundContainer = backgroundContainer;
 		this.round_aero = round_aero;
 		this.draw_button = draw_button;
@@ -112,6 +200,13 @@ class Level extends Phaser.Scene {
 		this.playerHandcontainer = playerHandcontainer;
 		this.discardPileTopCardContainer = discardPileTopCardContainer;
 		this.tempCardContainer = tempCardContainer;
+		this.cardGroupContainer = cardGroupContainer;
+		this.winnerContainer = winnerContainer;
+		this.txtRank = txtRank;
+		this.txtNumberTitle = txtNumberTitle;
+		this.txtNameTitle = txtNameTitle;
+		this.txtScoreTitle = txtScoreTitle;
+		this.txtPrizeTitle = txtPrizeTitle;
 
 		this.events.emit("scene-awake");
 	}
@@ -144,6 +239,20 @@ class Level extends Phaser.Scene {
 	discardPileTopCardContainer;
 	/** @type {Phaser.GameObjects.Container} */
 	tempCardContainer;
+	/** @type {Phaser.GameObjects.Container} */
+	cardGroupContainer;
+	/** @type {Phaser.GameObjects.Container} */
+	winnerContainer;
+	/** @type {Phaser.GameObjects.Text} */
+	txtRank;
+	/** @type {Phaser.GameObjects.Text} */
+	txtNumberTitle;
+	/** @type {Phaser.GameObjects.Text} */
+	txtNameTitle;
+	/** @type {Phaser.GameObjects.Text} */
+	txtScoreTitle;
+	/** @type {Phaser.GameObjects.Text} */
+	txtPrizeTitle;
 
 	/* START-USER-CODE */
 
@@ -180,6 +289,24 @@ class Level extends Phaser.Scene {
 		})
 	}
 
+	showResultScreen(oData) {
+		this.winnerContainer.visible = true;
+		let resultData = oData.aPlayer;
+
+		resultData.sort((a, b) => a.nRank - b.nRank);
+		console.log("%c Result Data sort by Rank", "background: white; color: black;", resultData);
+
+		for (let i = 0; i < resultData.length; i++) {
+			this.winnerPrefab = this.add.existing(new WinnerPrefab(this, 400, 294 + (i * 34)));
+			this.winnerContainer.add(this.winnerPrefab);
+			this.winnerPrefab.setWinnerData(resultData[i])
+			this.winnerPrefab.txtNumber.setText(i + 1);
+			if (resultData[i].iPlayerId === this.oGameManager.ownPlayerId) {
+				this.winnerPrefab.setOwnBackground();
+				this.txtRank.setText(resultData[i].nRank)
+			}
+		}
+	}
 	/* END-USER-CODE */
 }
 

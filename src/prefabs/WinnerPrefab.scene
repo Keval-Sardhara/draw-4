@@ -1,0 +1,79 @@
+{
+    "id": "f87730af-dd44-433e-8b23-1316c91dfcc3",
+    "sceneType": "PREFAB",
+    "settings": {
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": ""
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "c749ee64-c808-4198-957a-8316ca73cc05",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "4f8bceee-23d0-4701-a8c9-a4d930da34a7",
+                    "label": "winnerTextBackground",
+                    "scope": "CLASS",
+                    "components": [],
+                    "scaleX": 6,
+                    "scaleY": 0.27,
+                    "alpha": 0.4,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Text",
+                    "id": "ecb8747b-94e2-4540-ad94-384c9977e7bc",
+                    "label": "txtNumber",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": -335,
+                    "originX": 0.5,
+                    "originY": 0.5
+                },
+                {
+                    "type": "Text",
+                    "id": "849d1c90-f535-4ee4-a3b5-7fdbdb95bdf3",
+                    "label": "txtName",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": -243,
+                    "originY": 0.5
+                },
+                {
+                    "type": "Text",
+                    "id": "f25526e2-bc27-453e-afeb-e83d958f54d4",
+                    "label": "txtScore",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 86,
+                    "originX": 0.5,
+                    "originY": 0.5
+                },
+                {
+                    "type": "Text",
+                    "id": "f19b03f2-fa6d-4eca-a2e2-2ee53960c931",
+                    "label": "txtPrize",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 332,
+                    "originX": 0.5,
+                    "originY": 0.5
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

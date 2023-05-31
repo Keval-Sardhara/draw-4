@@ -400,6 +400,11 @@
                 "url": "src/script/UiManager.js",
                 "type": "script",
                 "key": "UiManager"
+            },
+            {
+                "url": "src/prefabs/WinnerPrefab.js",
+                "type": "script",
+                "key": "WinnerPrefab"
             }
         ]
     },
