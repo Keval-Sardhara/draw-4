@@ -50,11 +50,26 @@ class Level extends Phaser.Scene {
 		draw4_card.scaleY = 0.13;
 		backgroundContainer.add(draw4_card);
 
-		// icon_08
-		const icon_08 = this.add.image(347, -192, "icon-08");
-		icon_08.scaleX = 0.5;
-		icon_08.scaleY = 0.5;
-		backgroundContainer.add(icon_08);
+		// btnMenuOpen
+		const btnMenuOpen = this.add.image(343, -213, "btnCircle");
+		btnMenuOpen.scaleX = 0.7;
+		btnMenuOpen.scaleY = 0.7;
+		backgroundContainer.add(btnMenuOpen);
+
+		// rectangle_1
+		const rectangle_1 = this.add.rectangle(343, -217, 15, 2);
+		rectangle_1.isFilled = true;
+		backgroundContainer.add(rectangle_1);
+
+		// rectangle
+		const rectangle = this.add.rectangle(343, -213, 15, 2);
+		rectangle.isFilled = true;
+		backgroundContainer.add(rectangle);
+
+		// rectangle_2
+		const rectangle_2 = this.add.rectangle(343, -209, 15, 2);
+		rectangle_2.isFilled = true;
+		backgroundContainer.add(rectangle_2);
 
 		// roundAeroContainer
 		const roundAeroContainer = this.add.container(400, 260);
@@ -183,6 +198,109 @@ class Level extends Phaser.Scene {
 		// cardGroupContainer
 		const cardGroupContainer = this.add.container(0, 0);
 
+		// popupContainer
+		const popupContainer = this.add.container(400, 300);
+		popupContainer.visible = false;
+
+		// popup
+		const popup = this.add.image(0, 0, "popup");
+		popup.scaleX = 0.08;
+		popup.scaleY = 0.08;
+		popupContainer.add(popup);
+
+		// popupCloseBtn
+		const popupCloseBtn = this.add.image(90, -105, "closeBtn");
+		popupCloseBtn.scaleX = 0.06;
+		popupCloseBtn.scaleY = 0.06;
+		popupContainer.add(popupCloseBtn);
+
+		// text_4
+		const text_4 = this.add.text(0, -95, "", {});
+		text_4.setOrigin(0.5, 0.5);
+		text_4.text = "SETTINGS";
+		popupContainer.add(text_4);
+
+		// quitGameBtn
+		const quitGameBtn = this.add.image(46, 52, "btnCircle");
+		quitGameBtn.scaleX = 0.7;
+		quitGameBtn.scaleY = 0.7;
+		popupContainer.add(quitGameBtn);
+
+		// quitGameIcon
+		const quitGameIcon = this.add.image(46, 52, "icon-08");
+		quitGameIcon.scaleX = 0.2;
+		quitGameIcon.scaleY = 0.2;
+		quitGameIcon.tintFill = true;
+		popupContainer.add(quitGameIcon);
+
+		// infoBtn
+		const infoBtn = this.add.image(47, -50, "btnCircle");
+		infoBtn.scaleX = 0.7;
+		infoBtn.scaleY = 0.7;
+		popupContainer.add(infoBtn);
+
+		// text_5
+		const text_5 = this.add.text(-39, -50, "", {});
+		text_5.setOrigin(0.5, 0.5);
+		text_5.text = "INFO";
+		text_5.setStyle({ "color": "#9100e2ff", "fontSize": "14px" });
+		popupContainer.add(text_5);
+
+		// text
+		const text = this.add.text(-39, -16, "", {});
+		text.setOrigin(0.5, 0.5);
+		text.text = "SOUND";
+		text.setStyle({ "color": "#9100e2ff", "fontSize": "14px" });
+		popupContainer.add(text);
+
+		// text_6
+		const text_6 = this.add.text(-39, 18, "", {});
+		text_6.setOrigin(0.5, 0.5);
+		text_6.text = "MUSIC";
+		text_6.setStyle({ "color": "#9100e2ff", "fontSize": "14px" });
+		popupContainer.add(text_6);
+
+		// text_7
+		const text_7 = this.add.text(-39, 52, "", {});
+		text_7.setOrigin(0.5, 0.5);
+		text_7.text = "LEAVE";
+		text_7.setStyle({ "color": "#9100e2ff", "fontSize": "14px" });
+		popupContainer.add(text_7);
+
+		// rectangle_3
+		const rectangle_3 = this.add.rectangle(47, -54, 3, 3);
+		rectangle_3.isFilled = true;
+		popupContainer.add(rectangle_3);
+
+		// rectangle_4
+		const rectangle_4 = this.add.rectangle(47, -48, 3, 7);
+		rectangle_4.isFilled = true;
+		popupContainer.add(rectangle_4);
+
+		// coinbg_1
+		const coinbg_1 = this.add.image(47, -16, "coinbg");
+		coinbg_1.scaleX = 0.17;
+		coinbg_1.scaleY = 0.2;
+		popupContainer.add(coinbg_1);
+
+		// musicBtn
+		const musicBtn = this.add.image(36, -16, "btnCircle");
+		musicBtn.scaleX = 0.5;
+		musicBtn.scaleY = 0.5;
+		popupContainer.add(musicBtn);
+
+		// coinbg_2
+		const coinbg_2 = this.add.image(48, 18, "coinbg");
+		coinbg_2.scaleX = 0.17;
+		coinbg_2.scaleY = 0.2;
+		popupContainer.add(coinbg_2);
+
+		// soundBtn
+		const soundBtn = this.add.image(36, 18, "btnCircle");
+		soundBtn.scaleX = 0.5;
+		soundBtn.scaleY = 0.5;
+		popupContainer.add(soundBtn);
+
 		// winnerContainer
 		const winnerContainer = this.add.container(0, 0);
 		winnerContainer.visible = false;
@@ -278,7 +396,7 @@ class Level extends Phaser.Scene {
 		this.draw_button = draw_button;
 		this.draw4_button = draw4_button;
 		this.draw4_card = draw4_card;
-		this.icon_08 = icon_08;
+		this.btnMenuOpen = btnMenuOpen;
 		this.roundAeroContainer = roundAeroContainer;
 		this.round_aero = round_aero;
 		this.playerProfileContainer = playerProfileContainer;
@@ -302,7 +420,15 @@ class Level extends Phaser.Scene {
 		this.yellowBtn = yellowBtn;
 		this.redBtn = redBtn;
 		this.cardGroupContainer = cardGroupContainer;
+		this.popupContainer = popupContainer;
+		this.popupCloseBtn = popupCloseBtn;
+		this.quitGameBtn = quitGameBtn;
+		this.quitGameIcon = quitGameIcon;
+		this.infoBtn = infoBtn;
+		this.musicBtn = musicBtn;
+		this.soundBtn = soundBtn;
 		this.winnerContainer = winnerContainer;
+		this.winnerBackground = winnerBackground;
 		this.txtRank_1 = txtRank_1;
 		this.txtRank = txtRank;
 		this.winnerTitleBackground = winnerTitleBackground;
@@ -323,7 +449,7 @@ class Level extends Phaser.Scene {
 	/** @type {Phaser.GameObjects.Image} */
 	draw4_card;
 	/** @type {Phaser.GameObjects.Image} */
-	icon_08;
+	btnMenuOpen;
 	/** @type {Phaser.GameObjects.Container} */
 	roundAeroContainer;
 	/** @type {Phaser.GameObjects.Image} */
@@ -371,7 +497,23 @@ class Level extends Phaser.Scene {
 	/** @type {Phaser.GameObjects.Container} */
 	cardGroupContainer;
 	/** @type {Phaser.GameObjects.Container} */
+	popupContainer;
+	/** @type {Phaser.GameObjects.Image} */
+	popupCloseBtn;
+	/** @type {Phaser.GameObjects.Image} */
+	quitGameBtn;
+	/** @type {Phaser.GameObjects.Image} */
+	quitGameIcon;
+	/** @type {Phaser.GameObjects.Image} */
+	infoBtn;
+	/** @type {Phaser.GameObjects.Image} */
+	musicBtn;
+	/** @type {Phaser.GameObjects.Image} */
+	soundBtn;
+	/** @type {Phaser.GameObjects.Container} */
 	winnerContainer;
+	/** @type {Phaser.GameObjects.Image} */
+	winnerBackground;
 	/** @type {Phaser.GameObjects.Text} */
 	txtRank_1;
 	/** @type {Phaser.GameObjects.Text} */

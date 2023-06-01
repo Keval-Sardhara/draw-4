@@ -72,17 +72,50 @@
                 },
                 {
                     "type": "Image",
-                    "id": "3d738b8b-180d-4837-834a-a373960630e5",
-                    "label": "icon_08",
+                    "id": "2eb587ad-f474-4d5a-a4ce-8f5c4253e05e",
+                    "label": "btnMenuOpen",
                     "scope": "CLASS",
                     "components": [],
                     "texture": {
-                        "key": "icon-08"
+                        "key": "btnCircle"
                     },
-                    "x": 347,
-                    "y": -192,
-                    "scaleX": 0.5,
-                    "scaleY": 0.5
+                    "x": 343,
+                    "y": -213,
+                    "scaleX": 0.7,
+                    "scaleY": 0.7
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "1a7e4c90-ff19-496b-b907-418fd24909f0",
+                    "label": "rectangle_1",
+                    "components": [],
+                    "x": 343,
+                    "y": -217,
+                    "isFilled": true,
+                    "width": 15,
+                    "height": 2
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "d5616373-2b02-496c-9678-7a9866d0401d",
+                    "label": "rectangle",
+                    "components": [],
+                    "x": 343,
+                    "y": -213,
+                    "isFilled": true,
+                    "width": 15,
+                    "height": 2
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "8b85f3dd-2482-48fe-ba0d-9f25954a1c14",
+                    "label": "rectangle_2",
+                    "components": [],
+                    "x": 343,
+                    "y": -209,
+                    "isFilled": true,
+                    "width": 15,
+                    "height": 2
                 }
             ]
         },
@@ -375,7 +408,225 @@
         },
         {
             "type": "Container",
-            "id": "989fa085-4aae-46e7-8feb-d42f4c8c6a6c",
+            "id": "778faa8d-c037-49b1-bc74-e1fc14b23514",
+            "label": "popupContainer",
+            "scope": "CLASS",
+            "components": [],
+            "x": 400,
+            "y": 300,
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "47e6a6f9-0a2a-4262-8fb6-685d9b1631f1",
+                    "label": "popup",
+                    "components": [],
+                    "texture": {
+                        "key": "popup"
+                    },
+                    "scaleX": 0.08,
+                    "scaleY": 0.08
+                },
+                {
+                    "type": "Image",
+                    "id": "09f78c6a-dd50-476b-a4e1-5ba783c221cd",
+                    "label": "popupCloseBtn",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "closeBtn"
+                    },
+                    "x": 90,
+                    "y": -105,
+                    "scaleX": 0.06,
+                    "scaleY": 0.06
+                },
+                {
+                    "type": "Text",
+                    "id": "cab1990c-7ae7-475a-b68a-7aed8a53d5a6",
+                    "label": "text_4",
+                    "components": [],
+                    "y": -95,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "SETTINGS"
+                },
+                {
+                    "type": "Image",
+                    "id": "c72229e3-92da-450f-98ff-e0e6f3ab14fa",
+                    "label": "quitGameBtn",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "btnCircle"
+                    },
+                    "x": 46,
+                    "y": 52,
+                    "scaleX": 0.7,
+                    "scaleY": 0.7
+                },
+                {
+                    "type": "Image",
+                    "id": "3d738b8b-180d-4837-834a-a373960630e5",
+                    "label": "quitGameIcon",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "icon-08"
+                    },
+                    "x": 46,
+                    "y": 52,
+                    "scaleX": 0.2,
+                    "scaleY": 0.2,
+                    "tintFill": true
+                },
+                {
+                    "type": "Image",
+                    "id": "f3cf0ba5-9e30-4b5d-98de-695a14c752b5",
+                    "label": "infoBtn",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "btnCircle"
+                    },
+                    "x": 47,
+                    "y": -50,
+                    "scaleX": 0.7,
+                    "scaleY": 0.7
+                },
+                {
+                    "type": "Text",
+                    "id": "fb4a224c-2db2-4067-8da8-c5e9c375558c",
+                    "label": "text_5",
+                    "components": [],
+                    "x": -39,
+                    "y": -50,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "INFO",
+                    "fontSize": "14px",
+                    "color": "#9100e2ff"
+                },
+                {
+                    "type": "Text",
+                    "id": "65b8be0d-7f1a-4508-a221-f256acc91b0e",
+                    "label": "text",
+                    "components": [],
+                    "x": -39,
+                    "y": -16,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "SOUND",
+                    "fontSize": "14px",
+                    "color": "#9100e2ff"
+                },
+                {
+                    "type": "Text",
+                    "id": "b450637f-e88e-417f-955e-1a9491a6fa28",
+                    "label": "text_6",
+                    "components": [],
+                    "x": -39,
+                    "y": 18,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "MUSIC",
+                    "fontSize": "14px",
+                    "color": "#9100e2ff"
+                },
+                {
+                    "type": "Text",
+                    "id": "8c3a4f3f-7d93-45eb-b5a3-9f625b58f1db",
+                    "label": "text_7",
+                    "components": [],
+                    "x": -39,
+                    "y": 52,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "LEAVE",
+                    "fontSize": "14px",
+                    "color": "#9100e2ff"
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "3ebaa38b-1026-4bbf-a61a-9658b86e7380",
+                    "label": "rectangle_3",
+                    "components": [],
+                    "x": 47,
+                    "y": -54,
+                    "isFilled": true,
+                    "width": 3,
+                    "height": 3
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "49e9bfa1-89e7-4429-866d-1f30d6afec48",
+                    "label": "rectangle_4",
+                    "components": [],
+                    "x": 47,
+                    "y": -48,
+                    "isFilled": true,
+                    "width": 3,
+                    "height": 7
+                },
+                {
+                    "type": "Image",
+                    "id": "bd6afd7a-1202-46f4-923c-31dee6e60591",
+                    "label": "coinbg_1",
+                    "components": [],
+                    "texture": {
+                        "key": "coinbg"
+                    },
+                    "x": 47,
+                    "y": -16,
+                    "scaleX": 0.17,
+                    "scaleY": 0.2
+                },
+                {
+                    "type": "Image",
+                    "id": "e93b8c7f-0cc6-4781-9d7b-7d0a96203df0",
+                    "label": "musicBtn",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "btnCircle"
+                    },
+                    "x": 36,
+                    "y": -16,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5
+                },
+                {
+                    "type": "Image",
+                    "id": "4d937ee7-5fd6-4deb-acd5-8f5605e68297",
+                    "label": "coinbg_2",
+                    "components": [],
+                    "texture": {
+                        "key": "coinbg"
+                    },
+                    "x": 48,
+                    "y": 18,
+                    "scaleX": 0.17,
+                    "scaleY": 0.2
+                },
+                {
+                    "type": "Image",
+                    "id": "1e8b5ae3-6b2e-4b83-a5b6-5a58f374f85d",
+                    "label": "soundBtn",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "btnCircle"
+                    },
+                    "x": 36,
+                    "y": 18,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "cc18c1bf-57b8-42e2-a2ab-241920be5084",
             "label": "winnerContainer",
             "scope": "CLASS",
             "components": [],
@@ -385,6 +636,7 @@
                     "type": "Image",
                     "id": "688385c3-1811-4fef-97f9-40978778f380",
                     "label": "winnerBackground",
+                    "scope": "CLASS",
                     "components": [],
                     "texture": {
                         "key": "background"

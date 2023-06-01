@@ -5,6 +5,47 @@ class TweenManager {
         this.arrCardDistribute = []
     }
 
+    popupOpen(targetName) {
+        targetName.visible = true;
+        this.oScene.tweens.add({
+            targets: targetName,
+            scaleX: { from: 0, to: 1 },
+            scaleY: { from: 0, to: 1 },
+            duration: 200,
+            ease: 'Linear',
+        })
+    }
+    popupClose(targetName) {
+        this.oScene.tweens.add({
+            targets: targetName,
+            scaleX: { from: 1, to: 0 },
+            scaleY: { from: 1, to: 0 },
+            duration: 200,
+            ease: 'Linear',
+            onComplete: () => {
+                targetName.visible = false;
+            }
+        })
+    }
+
+    musicOnAnimation(targetName) {
+        this.oScene.tweens.add({
+            targets: targetName,
+            x: { from: targetName.x, to: targetName.x + 24 },
+            duration: 100,
+            ease: 'Linear'
+        })
+    }
+
+    musicOffAnimation(targetName) {
+        this.oScene.tweens.add({
+            targets: targetName,
+            x: { from: targetName.x, to: targetName.x - 24 },
+            duration: 100,
+            ease: 'Linear'
+        })
+    }
+
     roundAeroDefault() {
 
         if (this.roundAreoReverseTween !== undefined) {

@@ -7,6 +7,11 @@
                 "key": "background"
             },
             {
+                "url": "assets/images/icons/btnCircle.png",
+                "type": "image",
+                "key": "btnCircle"
+            },
+            {
                 "url": "assets/images/cards/card-black-13.png",
                 "type": "image",
                 "key": "card-black-13"
@@ -307,6 +312,11 @@
                 "key": "CardPreset"
             },
             {
+                "url": "assets/images/closeBtn.png",
+                "type": "image",
+                "key": "closeBtn"
+            },
+            {
                 "url": "assets/images/coinbg.png",
                 "type": "image",
                 "key": "coinbg"
@@ -360,6 +370,11 @@
                 "url": "src/prefabs/PlayerProfile.js",
                 "type": "script",
                 "key": "PlayerProfile"
+            },
+            {
+                "url": "assets/images/popup.png",
+                "type": "image",
+                "key": "popup"
             },
             {
                 "url": "assets/images/profile-icon.png",

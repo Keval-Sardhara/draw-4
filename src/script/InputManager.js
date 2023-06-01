@@ -4,17 +4,13 @@ class InputManager {
         this.oScene.draw_button.setInteractive().on('pointerdown', () => {
             this.oScene.reqDrawCard();
         })
-        this.oScene.icon_08.setInteractive().on('pointerdown', () => {
-            this.oScene.oSocketManager.socket.emit(this.oScene.oGameManager.iBattleId, { sTaskName: "reqLeave", oData: {} })
-            window.close();
-        })
         this.oScene.keep_butten.setInteractive().on('pointerdown', () => {
             this.oScene.isPlayableCardContainer.visible = false;
             this.oScene.oSocketManager.socket.emit(this.oScene.oGameManager.iBattleId, { sTaskName: "reqKeepCard", oData: {} })
         })
         this.oScene.play_butten.setInteractive().on('pointerdown', () => {
             this.oScene.isPlayableCardContainer.visible = false;
-            
+
             this.oScene.sendDiscardPileCard();
         })
         this.oScene.redBtn.setInteractive().on('pointerdown', () => {
@@ -30,13 +26,30 @@ class InputManager {
             this.oScene.sendWildCardColor(color);
         })
         this.oScene.yellowBtn.setInteractive().on('pointerdown', () => {
-             let color = "yellow";
+            let color = "yellow";
             this.oScene.sendWildCardColor(color);
         })
         this.oScene.draw4_button.setInteractive().on('pointerdown', () => {
             this.oScene.requestForDraw4();
-       })
+        })
+        this.oScene.quitGameBtn.setInteractive().on('pointerdown', () => {
+            this.oScene.oSocketManager.socket.emit(this.oScene.oGameManager.iBattleId, { sTaskName: "reqLeave", oData: {} })
+            window.close();
+        })
+        this.oScene.btnMenuOpen.setInteractive().on('pointerdown', () => {
+            this.oScene.oTweenManager.popupOpen(this.oScene.popupContainer)
+        })
+        this.oScene.popupCloseBtn.setInteractive().on('pointerdown', () => {
+            this.oScene.oTweenManager.popupClose(this.oScene.popupContainer)
+        })
+        this.oScene.musicBtn.setInteractive().on('pointerdown', () => {
+            this.oScene.oSoundManager.musicToggle(this.oScene.musicBtn);
+        })
+        this.oScene.soundBtn.setInteractive().on('pointerdown', () => {
+            this.oScene.oSoundManager.soundToggle(this.oScene.soundBtn);
+        })
 
+        this.oScene.winnerBackground.setInteractive();
     }
 
 }

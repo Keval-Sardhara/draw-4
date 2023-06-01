@@ -6,7 +6,7 @@ class CardManager {
     //setcards on PlayerHand
     setPlayerHand(data) {
         let nPlayerCard = 0;
-               
+
         for (let i = 0; i < data.aHand.length; i++) {
             this.tempCard = this.oScene.add.existing(new CardPrefab(this.oScene, (this.oScene.playerHandcontainer.getAll().length * this.oScene.oGameManager.cardGap), 510));
             this.tempCard.cardImage.setTexture("card-" + data.aHand[nPlayerCard].eColor + "-" + data.aHand[nPlayerCard].nLabel);
@@ -26,24 +26,26 @@ class CardManager {
     }
     // setcard on hand
     setDrawCard(data) {
-        let cards = data.oData.aCard;
-        console.log("from Card Manager :::", cards);
-        if(data.oData.bIsPlayable){
-            this.oScene.isPlayableCardContainer.visible = true;
-            for (let i = 0; i < cards.length; i++) {
-            this.tempCard1 = this.oScene.add.existing(new CardPrefab(this.oScene, 398 , 404));
-            this.tempCard1.setScale(0.7);
-            this.tempCard1.cardImage.setTexture("card-" + cards[i].eColor + "-" + cards[i].nLabel);
-            this.tempCard1.setName(cards[i].iCardId);
-            this.oScene.isPlayCardCont.add(this.tempCard1);
-            console.log(this.oScene.isPlayCardCont);
+        if (data.sTaskName === "resDrawCard") {
+            let cards = data.oData.aCard;
+            console.log("%c from Card Manager :::", "background:yellow;", cards);
+            if (data.oData.bIsPlayable) {
+                this.oScene.isPlayableCardContainer.visible = true;
+                for (let i = 0; i < cards.length; i++) {
+                    this.tempCard1 = this.oScene.add.existing(new CardPrefab(this.oScene, 398, 404));
+                    this.tempCard1.setScale(0.7);
+                    this.tempCard1.cardImage.setTexture("card-" + cards[i].eColor + "-" + cards[i].nLabel);
+                    this.tempCard1.setName(cards[i].iCardId);
+                    this.oScene.isPlayCardCont.add(this.tempCard1);
+                    console.log(this.oScene.isPlayCardCont);
+                }
+            } else {
+                this.setCardonHand(cards);
+                this.oScene.playerHandcontainer.x = (800 - ((this.oScene.playerHandcontainer.getAll().length - 1) * this.oScene.oGameManager.cardGap)) / 2;
             }
-        }else{
-            this.setCardonHand(cards);
-            this.oScene.playerHandcontainer.x = (800 - ((this.oScene.playerHandcontainer.getAll().length - 1) * this.oScene.oGameManager.cardGap)) / 2;
         }
     }
-    setCardonHand(cards){
+    setCardonHand(cards) {
         for (let i = 0; i < cards.length; i++) {
             this.tempCard1 = this.oScene.add.existing(new CardPrefab(this.oScene, (this.oScene.playerHandcontainer.getAll().length * this.oScene.oGameManager.cardGap), 510));
             this.tempCard1.cardImage.setTexture("card-" + cards[i].eColor + "-" + cards[i].nLabel);
