@@ -31,10 +31,12 @@ class CardManager {
         if(data.oData.bIsPlayable){
             this.oScene.isPlayableCardContainer.visible = true;
             for (let i = 0; i < cards.length; i++) {
-            this.tempCard1 = this.oScene.add.existing(new CardPrefab(this.oScene, 385 , 404));
-            this.tempCard1.setScale(0.3);
+            this.tempCard1 = this.oScene.add.existing(new CardPrefab(this.oScene, 398 , 404));
+            this.tempCard1.setScale(0.7);
             this.tempCard1.cardImage.setTexture("card-" + cards[i].eColor + "-" + cards[i].nLabel);
             this.tempCard1.setName(cards[i].iCardId);
+            this.oScene.isPlayCardCont.add(this.tempCard1);
+            console.log(this.oScene.isPlayCardCont);
             }
         }else{
             this.setCardonHand(cards);

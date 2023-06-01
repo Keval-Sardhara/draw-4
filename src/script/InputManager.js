@@ -14,7 +14,8 @@ class InputManager {
         })
         this.oScene.play_butten.setInteractive().on('pointerdown', () => {
             this.oScene.isPlayableCardContainer.visible = false;
-            this.oScene.oSocketManager.socket.emit(this.oScene.oGameManager.iBattleId, { sTaskName: "reqDiscardCard", oData: {} })
+            
+            this.oScene.sendDiscardPileCard();
         })
         this.oScene.redBtn.setInteractive().on('pointerdown', () => {
             let color = "red";

@@ -207,6 +207,338 @@
             "components": [],
             "y": 1,
             "list": []
+        },
+        {
+            "type": "Container",
+            "id": "bc2f5d09-1d38-4a4e-8498-5d003570b6ca",
+            "label": "isPlayableCardContainer",
+            "scope": "CLASS",
+            "components": [],
+            "visible": false,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "14213df3-4aad-4705-8971-25af99753a15",
+                    "label": "isPlayBg",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 401,
+                    "y": 408,
+                    "scaleX": 1.6,
+                    "scaleY": 0.34,
+                    "isFilled": true,
+                    "fillColor": "#8570eb",
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Image",
+                    "id": "e3f54167-51bf-4624-abee-47ea1f2e7e62",
+                    "label": "play_butten",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "green butten"
+                    },
+                    "x": 331,
+                    "y": 409,
+                    "scaleX": 0.2,
+                    "scaleY": 0.2
+                },
+                {
+                    "type": "Image",
+                    "id": "77873efc-c5a5-4349-98c7-767ebb0482c2",
+                    "label": "keep_butten",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "red botten"
+                    },
+                    "x": 465,
+                    "y": 408,
+                    "scaleX": 0.2,
+                    "scaleY": 0.2
+                },
+                {
+                    "type": "Text",
+                    "id": "e012745a-b422-4cad-8673-0e2d8d57e7e8",
+                    "label": "playTxt",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 331,
+                    "y": 409,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Play",
+                    "fontSize": "20"
+                },
+                {
+                    "type": "Text",
+                    "id": "c0defc74-0c1a-43b5-ad39-8c6e3aa09890",
+                    "label": "keepTxt",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 465,
+                    "y": 407,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "keep",
+                    "fontSize": "20"
+                },
+                {
+                    "type": "Container",
+                    "id": "5273a8e4-2753-436c-9173-822f1b950dcc",
+                    "label": "isPlayCardCont",
+                    "scope": "CLASS",
+                    "components": [],
+                    "list": []
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "9cd59fcb-00f5-4465-948d-9c26d05b3282",
+            "label": "wildCardColorContainer",
+            "scope": "CLASS",
+            "components": [],
+            "visible": false,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "c980f365-8f26-430f-9ec6-db2324990426",
+                    "label": "blueBtn",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 433,
+                    "y": 291,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "isFilled": true,
+                    "fillColor": "#048ce4",
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "82b02852-72f3-44c3-9879-c68e865bf640",
+                    "label": "greenBtn",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 368,
+                    "y": 226,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "isFilled": true,
+                    "fillColor": "#05b902",
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "050cd2f0-d193-41d8-ab46-e72e40c648db",
+                    "label": "yellowBtn",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 368,
+                    "y": 291,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "isFilled": true,
+                    "fillColor": "#eee124",
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "95c4d97b-5bea-4bca-9d93-d7e7341e232b",
+                    "label": "redBtn",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 433,
+                    "y": 226,
+                    "scaleX": 0.5,
+                    "scaleY": 0.5,
+                    "isFilled": true,
+                    "fillColor": "#f70b0b",
+                    "width": 128,
+                    "height": 128
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "534c5b85-3f5e-43ae-91a8-50722f321346",
+            "label": "cardGroupContainer",
+            "scope": "CLASS",
+            "components": [],
+            "list": []
+        },
+        {
+            "type": "Container",
+            "id": "989fa085-4aae-46e7-8feb-d42f4c8c6a6c",
+            "label": "winnerContainer",
+            "scope": "CLASS",
+            "components": [],
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "688385c3-1811-4fef-97f9-40978778f380",
+                    "label": "winnerBackground",
+                    "components": [],
+                    "texture": {
+                        "key": "background"
+                    },
+                    "x": 402,
+                    "y": 303,
+                    "scaleX": 0.42,
+                    "scaleY": 0.555
+                },
+                {
+                    "type": "Text",
+                    "id": "c7c76af2-fbaf-4360-91cb-b12bedbd69b3",
+                    "label": "text_1",
+                    "components": [],
+                    "x": 400,
+                    "y": 67,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "GAME OVER",
+                    "fontSize": "40px"
+                },
+                {
+                    "type": "Text",
+                    "id": "c3665ff3-6d81-4687-b7d6-c1ee62b2d802",
+                    "label": "text_2",
+                    "components": [],
+                    "x": 400,
+                    "y": 211,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Rank",
+                    "fontSize": "30px"
+                },
+                {
+                    "type": "Image",
+                    "id": "fe2dfd9e-0a53-430e-9b87-9baa7fbf3d13",
+                    "label": "coinbg",
+                    "components": [],
+                    "texture": {
+                        "key": "coinbg"
+                    },
+                    "x": 400,
+                    "y": 519,
+                    "scaleX": 0.7,
+                    "scaleY": 0.7,
+                    "tintTopLeft": "#af74f6",
+                    "tintTopRight": "#af74f6",
+                    "tintBottomLeft": "#af74f6",
+                    "tintBottomRight": "#af74f6",
+                    "tintFill": true
+                },
+                {
+                    "type": "Text",
+                    "id": "a0d253b0-60b9-494c-b229-077affd9f9c3",
+                    "label": "text_3",
+                    "components": [],
+                    "x": 400,
+                    "y": 519,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Home"
+                },
+                {
+                    "type": "Text",
+                    "id": "c9c110a8-9c1c-4dc1-87e3-09a497033864",
+                    "label": "txtRank_1",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 409,
+                    "y": 147,
+                    "originY": 0.5,
+                    "text": "st"
+                },
+                {
+                    "type": "Text",
+                    "id": "fe50886d-6c77-428d-a949-6b8c2e00643e",
+                    "label": "txtRank",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 400,
+                    "y": 170,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "1",
+                    "fontSize": "45px"
+                },
+                {
+                    "type": "Container",
+                    "id": "5bfda4b9-c692-477f-953b-faa00a0be9ed",
+                    "label": "winnerTitleContainer",
+                    "components": [],
+                    "x": 400,
+                    "y": 260,
+                    "list": [
+                        {
+                            "type": "Rectangle",
+                            "id": "bfe96b30-2a1c-4fac-baf6-5e2b1568c79e",
+                            "label": "winnerTitleBackground",
+                            "scope": "CLASS",
+                            "components": [],
+                            "scaleX": 6,
+                            "scaleY": 0.27,
+                            "alpha": 0.4,
+                            "isFilled": true,
+                            "fillColor": "#000000",
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Text",
+                            "id": "da1e8826-976f-4a09-9e50-5a9e99cb00e0",
+                            "label": "txtNumberTitle",
+                            "scope": "CLASS",
+                            "components": [],
+                            "x": -335,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "No."
+                        },
+                        {
+                            "type": "Text",
+                            "id": "3e2eb8af-3f42-4840-8698-fc976b0d1db9",
+                            "label": "txtNameTitle",
+                            "scope": "CLASS",
+                            "components": [],
+                            "x": -243,
+                            "originY": 0.5,
+                            "text": "Name"
+                        },
+                        {
+                            "type": "Text",
+                            "id": "dd5dde92-bc8c-4cf1-9bd3-4076fbb9069a",
+                            "label": "txtScoreTitle",
+                            "scope": "CLASS",
+                            "components": [],
+                            "x": 86,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Score"
+                        },
+                        {
+                            "type": "Text",
+                            "id": "1a045eb0-3d80-431c-a17c-6eafa8a7ac55",
+                            "label": "txtPrizeTitle",
+                            "scope": "CLASS",
+                            "components": [],
+                            "x": 332,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Prize"
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "plainObjects": [],

@@ -106,94 +106,89 @@ class Level extends Phaser.Scene {
 		const isPlayableCardContainer = this.add.container(0, 0);
 		isPlayableCardContainer.visible = false;
 
-		// bgRact
-		const bgRact = this.add.rectangle(398, 404, 128, 128);
-		bgRact.scaleX = 1.8;
-		bgRact.scaleY = 0.4;
-		bgRact.isFilled = true;
-		bgRact.fillColor = 8745195;
-		bgRact.strokeColor = 8745195;
-		isPlayableCardContainer.add(bgRact);
+		// isPlayBg
+		const isPlayBg = this.add.rectangle(401, 408, 128, 128);
+		isPlayBg.scaleX = 1.6;
+		isPlayBg.scaleY = 0.34;
+		isPlayBg.isFilled = true;
+		isPlayBg.fillColor = 8745195;
+		isPlayableCardContainer.add(isPlayBg);
 
 		// play_butten
-		const play_butten = this.add.image(320, 406, "green butten");
-		play_butten.scaleX = 0.25;
-		play_butten.scaleY = 0.25;
+		const play_butten = this.add.image(331, 409, "green butten");
+		play_butten.scaleX = 0.2;
+		play_butten.scaleY = 0.2;
 		isPlayableCardContainer.add(play_butten);
 
 		// keep_butten
-		const keep_butten = this.add.image(475, 406, "red botten");
-		keep_butten.scaleX = 0.25;
-		keep_butten.scaleY = 0.25;
+		const keep_butten = this.add.image(465, 408, "red botten");
+		keep_butten.scaleX = 0.2;
+		keep_butten.scaleY = 0.2;
 		isPlayableCardContainer.add(keep_butten);
 
-		// keepTxt
-		const keepTxt = this.add.text(318, 405, "", {});
-		keepTxt.scaleX = 0.6;
-		keepTxt.scaleY = 0.6;
-		keepTxt.setOrigin(0.5, 0.5);
-		keepTxt.text = "Keep";
-		keepTxt.setStyle({ "fontSize": "20px" });
-		isPlayableCardContainer.add(keepTxt);
-
 		// playTxt
-		const playTxt = this.add.text(476, 405, "", {});
-		playTxt.scaleX = 0.6;
-		playTxt.scaleY = 0.6;
+		const playTxt = this.add.text(331, 409, "", {});
 		playTxt.setOrigin(0.5, 0.5);
 		playTxt.text = "Play";
-		playTxt.setStyle({ "fontSize": "20px" });
+		playTxt.setStyle({ "fontSize": "20" });
 		isPlayableCardContainer.add(playTxt);
 
-		// playableContainer
-		const playableContainer = this.add.container(0, 0);
-		isPlayableCardContainer.add(playableContainer);
+		// keepTxt
+		const keepTxt = this.add.text(465, 407, "", {});
+		keepTxt.setOrigin(0.5, 0.5);
+		keepTxt.text = "keep";
+		keepTxt.setStyle({ "fontSize": "20" });
+		isPlayableCardContainer.add(keepTxt);
+
+		// isPlayCardCont
+		const isPlayCardCont = this.add.container(0, 0);
+		isPlayableCardContainer.add(isPlayCardCont);
 
 		// wildCardColorContainer
-		const wildCardColorContainer = this.add.container(0, -1);
+		const wildCardColorContainer = this.add.container(0, 0);
 		wildCardColorContainer.visible = false;
 
-		// yellowBtn
-		const yellowBtn = this.add.rectangle(367, 227, 128, 128);
-		yellowBtn.scaleX = 0.5;
-		yellowBtn.scaleY = 0.5;
-		yellowBtn.isFilled = true;
-		yellowBtn.fillColor = 15523331;
-		wildCardColorContainer.add(yellowBtn);
-
-		// greenBtn
-		const greenBtn = this.add.rectangle(367, 293, 128, 128);
-		greenBtn.scaleX = 0.5;
-		greenBtn.scaleY = 0.5;
-		greenBtn.isFilled = true;
-		greenBtn.fillColor = 107069;
-		wildCardColorContainer.add(greenBtn);
-
 		// blueBtn
-		const blueBtn = this.add.rectangle(434, 227, 128, 128);
+		const blueBtn = this.add.rectangle(433, 291, 128, 128);
 		blueBtn.scaleX = 0.5;
 		blueBtn.scaleY = 0.5;
 		blueBtn.isFilled = true;
-		blueBtn.fillColor = 1443558;
+		blueBtn.fillColor = 298212;
 		wildCardColorContainer.add(blueBtn);
 
+		// greenBtn
+		const greenBtn = this.add.rectangle(368, 226, 128, 128);
+		greenBtn.scaleX = 0.5;
+		greenBtn.scaleY = 0.5;
+		greenBtn.isFilled = true;
+		greenBtn.fillColor = 375042;
+		wildCardColorContainer.add(greenBtn);
+
+		// yellowBtn
+		const yellowBtn = this.add.rectangle(368, 291, 128, 128);
+		yellowBtn.scaleX = 0.5;
+		yellowBtn.scaleY = 0.5;
+		yellowBtn.isFilled = true;
+		yellowBtn.fillColor = 15655204;
+		wildCardColorContainer.add(yellowBtn);
+
 		// redBtn
-		const redBtn = this.add.rectangle(434, 293, 128, 128);
+		const redBtn = this.add.rectangle(433, 226, 128, 128);
 		redBtn.scaleX = 0.5;
 		redBtn.scaleY = 0.5;
 		redBtn.isFilled = true;
-		redBtn.fillColor = 13697795;
+		redBtn.fillColor = 16190219;
 		wildCardColorContainer.add(redBtn);
 
 		// cardGroupContainer
-		const cardGroupContainer = this.add.container(325, 0);
+		const cardGroupContainer = this.add.container(0, 0);
 
 		// winnerContainer
 		const winnerContainer = this.add.container(0, 0);
 		winnerContainer.visible = false;
 
 		// winnerBackground
-		const winnerBackground = this.add.image(400, 300, "background");
+		const winnerBackground = this.add.image(402, 303, "background");
 		winnerBackground.scaleX = 0.42;
 		winnerBackground.scaleY = 0.555;
 		winnerContainer.add(winnerBackground);
@@ -202,14 +197,14 @@ class Level extends Phaser.Scene {
 		const text_1 = this.add.text(400, 67, "", {});
 		text_1.setOrigin(0.5, 0.5);
 		text_1.text = "GAME OVER";
-		text_1.setStyle({ "fontSize": "42px" });
+		text_1.setStyle({ "fontSize": "40px" });
 		winnerContainer.add(text_1);
 
 		// text_2
 		const text_2 = this.add.text(400, 211, "", {});
 		text_2.setOrigin(0.5, 0.5);
 		text_2.text = "Rank";
-		text_2.setStyle({ "fontSize": "25px" });
+		text_2.setStyle({ "fontSize": "30px" });
 		winnerContainer.add(text_2);
 
 		// coinbg
@@ -229,6 +224,12 @@ class Level extends Phaser.Scene {
 		text_3.text = "Home";
 		winnerContainer.add(text_3);
 
+		// txtRank_1
+		const txtRank_1 = this.add.text(409, 147, "", {});
+		txtRank_1.setOrigin(0, 0.5);
+		txtRank_1.text = "st";
+		winnerContainer.add(txtRank_1);
+
 		// txtRank
 		const txtRank = this.add.text(400, 170, "", {});
 		txtRank.setOrigin(0.5, 0.5);
@@ -240,14 +241,14 @@ class Level extends Phaser.Scene {
 		const winnerTitleContainer = this.add.container(400, 260);
 		winnerContainer.add(winnerTitleContainer);
 
-		// winnerTitleBackgound
-		const winnerTitleBackgound = this.add.rectangle(0, 0, 128, 128);
-		winnerTitleBackgound.scaleX = 6;
-		winnerTitleBackgound.scaleY = 0.27;
-		winnerTitleBackgound.alpha = 0.4;
-		winnerTitleBackgound.isFilled = true;
-		winnerTitleBackgound.fillColor = 0;
-		winnerTitleContainer.add(winnerTitleBackgound);
+		// winnerTitleBackground
+		const winnerTitleBackground = this.add.rectangle(0, 0, 128, 128);
+		winnerTitleBackground.scaleX = 6;
+		winnerTitleBackground.scaleY = 0.27;
+		winnerTitleBackground.alpha = 0.4;
+		winnerTitleBackground.isFilled = true;
+		winnerTitleBackground.fillColor = 0;
+		winnerTitleContainer.add(winnerTitleBackground);
 
 		// txtNumberTitle
 		const txtNumberTitle = this.add.text(-335, 0, "", {});
@@ -288,25 +289,27 @@ class Level extends Phaser.Scene {
 		this.discardPileTopCardContainer = discardPileTopCardContainer;
 		this.playerHandcontainer = playerHandcontainer;
 		this.tempCardContainer = tempCardContainer;
+		this.isPlayableCardContainer = isPlayableCardContainer;
+		this.isPlayBg = isPlayBg;
+		this.play_butten = play_butten;
+		this.keep_butten = keep_butten;
+		this.playTxt = playTxt;
+		this.keepTxt = keepTxt;
+		this.isPlayCardCont = isPlayCardCont;
+		this.wildCardColorContainer = wildCardColorContainer;
+		this.blueBtn = blueBtn;
+		this.greenBtn = greenBtn;
+		this.yellowBtn = yellowBtn;
+		this.redBtn = redBtn;
 		this.cardGroupContainer = cardGroupContainer;
 		this.winnerContainer = winnerContainer;
+		this.txtRank_1 = txtRank_1;
 		this.txtRank = txtRank;
+		this.winnerTitleBackground = winnerTitleBackground;
 		this.txtNumberTitle = txtNumberTitle;
 		this.txtNameTitle = txtNameTitle;
 		this.txtScoreTitle = txtScoreTitle;
 		this.txtPrizeTitle = txtPrizeTitle;
-		this.isPlayableCardContainer = isPlayableCardContainer;
-		this.bgRact = bgRact;
-		this.play_butten = play_butten;
-		this.keep_butten = keep_butten;
-		this.keepTxt = keepTxt;
-		this.playTxt = playTxt;
-		this.playableContainer = playableContainer;
-		this.wildCardColorContainer = wildCardColorContainer;
-		this.yellowBtn = yellowBtn;
-		this.greenBtn = greenBtn;
-		this.blueBtn = blueBtn;
-		this.redBtn = redBtn;
 
 		this.events.emit("scene-awake");
 	}
@@ -342,11 +345,39 @@ class Level extends Phaser.Scene {
 	/** @type {Phaser.GameObjects.Container} */
 	tempCardContainer;
 	/** @type {Phaser.GameObjects.Container} */
+	isPlayableCardContainer;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	isPlayBg;
+	/** @type {Phaser.GameObjects.Image} */
+	play_butten;
+	/** @type {Phaser.GameObjects.Image} */
+	keep_butten;
+	/** @type {Phaser.GameObjects.Text} */
+	playTxt;
+	/** @type {Phaser.GameObjects.Text} */
+	keepTxt;
+	/** @type {Phaser.GameObjects.Container} */
+	isPlayCardCont;
+	/** @type {Phaser.GameObjects.Container} */
+	wildCardColorContainer;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	blueBtn;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	greenBtn;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	yellowBtn;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	redBtn;
+	/** @type {Phaser.GameObjects.Container} */
 	cardGroupContainer;
 	/** @type {Phaser.GameObjects.Container} */
 	winnerContainer;
 	/** @type {Phaser.GameObjects.Text} */
+	txtRank_1;
+	/** @type {Phaser.GameObjects.Text} */
 	txtRank;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	winnerTitleBackground;
 	/** @type {Phaser.GameObjects.Text} */
 	txtNumberTitle;
 	/** @type {Phaser.GameObjects.Text} */
@@ -355,29 +386,6 @@ class Level extends Phaser.Scene {
 	txtScoreTitle;
 	/** @type {Phaser.GameObjects.Text} */
 	txtPrizeTitle;
-	isPlayableCardContainer;
-	/** @type {Phaser.GameObjects.Rectangle} */
-	bgRact;
-	/** @type {Phaser.GameObjects.Image} */
-	play_butten;
-	/** @type {Phaser.GameObjects.Image} */
-	keep_butten;
-	/** @type {Phaser.GameObjects.Text} */
-	keepTxt;
-	/** @type {Phaser.GameObjects.Text} */
-	playTxt;
-	/** @type {Phaser.GameObjects.Container} */
-	playableContainer;
-	/** @type {Phaser.GameObjects.Container} */
-	wildCardColorContainer;
-	/** @type {Phaser.GameObjects.Rectangle} */
-	yellowBtn;
-	/** @type {Phaser.GameObjects.Rectangle} */
-	greenBtn;
-	/** @type {Phaser.GameObjects.Rectangle} */
-	blueBtn;
-	/** @type {Phaser.GameObjects.Rectangle} */
-	redBtn;
 
 	/* START-USER-CODE */
 
@@ -445,6 +453,20 @@ class Level extends Phaser.Scene {
 			if (resultData[i].iPlayerId === this.oGameManager.ownPlayerId) {
 				this.winnerPrefab.setOwnBackground();
 				this.txtRank.setText(resultData[i].nRank)
+				switch (resultData[i].nRank) {
+					case 1:
+						this.txtRank_1.setText("st");
+						break;
+					case 2:
+						this.txtRank_1.setText("nd");
+						break;
+					case 3:
+						this.txtRank_1.setText("rd");
+						break;
+					case 4:
+						this.txtRank_1.setText("th");
+						break;
+				}
 			}
 		}
 	}
