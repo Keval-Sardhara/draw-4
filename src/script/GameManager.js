@@ -9,4 +9,11 @@ class GameManager {
         this.cardGap = 25;
         this.bTurnClockwise = true;
     }
+    setReverseTurn(data){
+        if(data.oData.bTurnClockwise == false){
+            this.oScene.oTweenManager.roundAreoReverse();
+        }else{
+            this.oScene.oTweenManager.roundAeroDefault();
+        }
+    }
 }

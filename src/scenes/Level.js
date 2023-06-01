@@ -91,16 +91,99 @@ class Level extends Phaser.Scene {
 		const playerProfile_4 = new PlayerProfile(this, 600, 150);
 		playerProfileContainer.add(playerProfile_4);
 
-		// playerHandcontainer
-		const playerHandcontainer = this.add.container(0, 0);
-		playerHandcontainer.name = "playerHandcontainer";
-
 		// discardPileTopCardContainer
 		const discardPileTopCardContainer = this.add.container(0, 0);
 		discardPileTopCardContainer.name = "discardPileTopCardContainer";
 
+		// playerHandcontainer
+		const playerHandcontainer = this.add.container(0, 0);
+		playerHandcontainer.name = "playerHandcontainer";
+
 		// tempCardContainer
-		const tempCardContainer = this.add.container(0, 0);
+		const tempCardContainer = this.add.container(0, 1);
+
+		// isPlayableCardContainer
+		const isPlayableCardContainer = this.add.container(0, 0);
+		isPlayableCardContainer.visible = false;
+
+		// bgRact
+		const bgRact = this.add.rectangle(398, 404, 128, 128);
+		bgRact.scaleX = 1.8;
+		bgRact.scaleY = 0.4;
+		bgRact.isFilled = true;
+		bgRact.fillColor = 8745195;
+		bgRact.strokeColor = 8745195;
+		isPlayableCardContainer.add(bgRact);
+
+		// play_butten
+		const play_butten = this.add.image(320, 406, "green butten");
+		play_butten.scaleX = 0.25;
+		play_butten.scaleY = 0.25;
+		isPlayableCardContainer.add(play_butten);
+
+		// keep_butten
+		const keep_butten = this.add.image(475, 406, "red botten");
+		keep_butten.scaleX = 0.25;
+		keep_butten.scaleY = 0.25;
+		isPlayableCardContainer.add(keep_butten);
+
+		// keepTxt
+		const keepTxt = this.add.text(318, 405, "", {});
+		keepTxt.scaleX = 0.6;
+		keepTxt.scaleY = 0.6;
+		keepTxt.setOrigin(0.5, 0.5);
+		keepTxt.text = "Keep";
+		keepTxt.setStyle({ "fontSize": "20px" });
+		isPlayableCardContainer.add(keepTxt);
+
+		// playTxt
+		const playTxt = this.add.text(476, 405, "", {});
+		playTxt.scaleX = 0.6;
+		playTxt.scaleY = 0.6;
+		playTxt.setOrigin(0.5, 0.5);
+		playTxt.text = "Play";
+		playTxt.setStyle({ "fontSize": "20px" });
+		isPlayableCardContainer.add(playTxt);
+
+		// playableContainer
+		const playableContainer = this.add.container(0, 0);
+		isPlayableCardContainer.add(playableContainer);
+
+		// wildCardColorContainer
+		const wildCardColorContainer = this.add.container(0, -1);
+		wildCardColorContainer.visible = false;
+
+		// yellowBtn
+		const yellowBtn = this.add.rectangle(367, 227, 128, 128);
+		yellowBtn.scaleX = 0.5;
+		yellowBtn.scaleY = 0.5;
+		yellowBtn.isFilled = true;
+		yellowBtn.fillColor = 15523331;
+		wildCardColorContainer.add(yellowBtn);
+
+		// greenBtn
+		const greenBtn = this.add.rectangle(367, 293, 128, 128);
+		greenBtn.scaleX = 0.5;
+		greenBtn.scaleY = 0.5;
+		greenBtn.isFilled = true;
+		greenBtn.fillColor = 107069;
+		wildCardColorContainer.add(greenBtn);
+
+		// blueBtn
+		const blueBtn = this.add.rectangle(434, 227, 128, 128);
+		blueBtn.scaleX = 0.5;
+		blueBtn.scaleY = 0.5;
+		blueBtn.isFilled = true;
+		blueBtn.fillColor = 1443558;
+		wildCardColorContainer.add(blueBtn);
+
+		// redBtn
+		const redBtn = this.add.rectangle(434, 293, 128, 128);
+		redBtn.scaleX = 0.5;
+		redBtn.scaleY = 0.5;
+		redBtn.isFilled = true;
+		redBtn.fillColor = 13697795;
+		wildCardColorContainer.add(redBtn);
 
 		// cardGroupContainer
 		const cardGroupContainer = this.add.container(325, 0);
@@ -202,8 +285,8 @@ class Level extends Phaser.Scene {
 		this.playerProfile_2 = playerProfile_2;
 		this.playerProfile_3 = playerProfile_3;
 		this.playerProfile_4 = playerProfile_4;
-		this.playerHandcontainer = playerHandcontainer;
 		this.discardPileTopCardContainer = discardPileTopCardContainer;
+		this.playerHandcontainer = playerHandcontainer;
 		this.tempCardContainer = tempCardContainer;
 		this.cardGroupContainer = cardGroupContainer;
 		this.winnerContainer = winnerContainer;
@@ -212,6 +295,18 @@ class Level extends Phaser.Scene {
 		this.txtNameTitle = txtNameTitle;
 		this.txtScoreTitle = txtScoreTitle;
 		this.txtPrizeTitle = txtPrizeTitle;
+		this.isPlayableCardContainer = isPlayableCardContainer;
+		this.bgRact = bgRact;
+		this.play_butten = play_butten;
+		this.keep_butten = keep_butten;
+		this.keepTxt = keepTxt;
+		this.playTxt = playTxt;
+		this.playableContainer = playableContainer;
+		this.wildCardColorContainer = wildCardColorContainer;
+		this.yellowBtn = yellowBtn;
+		this.greenBtn = greenBtn;
+		this.blueBtn = blueBtn;
+		this.redBtn = redBtn;
 
 		this.events.emit("scene-awake");
 	}
@@ -241,9 +336,9 @@ class Level extends Phaser.Scene {
 	/** @type {PlayerProfile} */
 	playerProfile_4;
 	/** @type {Phaser.GameObjects.Container} */
-	playerHandcontainer;
-	/** @type {Phaser.GameObjects.Container} */
 	discardPileTopCardContainer;
+	/** @type {Phaser.GameObjects.Container} */
+	playerHandcontainer;
 	/** @type {Phaser.GameObjects.Container} */
 	tempCardContainer;
 	/** @type {Phaser.GameObjects.Container} */
@@ -260,6 +355,29 @@ class Level extends Phaser.Scene {
 	txtScoreTitle;
 	/** @type {Phaser.GameObjects.Text} */
 	txtPrizeTitle;
+	isPlayableCardContainer;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	bgRact;
+	/** @type {Phaser.GameObjects.Image} */
+	play_butten;
+	/** @type {Phaser.GameObjects.Image} */
+	keep_butten;
+	/** @type {Phaser.GameObjects.Text} */
+	keepTxt;
+	/** @type {Phaser.GameObjects.Text} */
+	playTxt;
+	/** @type {Phaser.GameObjects.Container} */
+	playableContainer;
+	/** @type {Phaser.GameObjects.Container} */
+	wildCardColorContainer;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	yellowBtn;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	greenBtn;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	blueBtn;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	redBtn;
 
 	/* START-USER-CODE */
 
@@ -293,6 +411,22 @@ class Level extends Phaser.Scene {
 			sTaskName: "reqDiscardCard", oData: { iCardId: discardcard }
 		}, (error, data) => {
 			console.warn("dropCard Card", error, data);
+		})
+	}
+	sendWildCardColor(color) {
+		console.log("color", color);
+		this.wildCardColorContainer.visible = false;
+		this.oSocketManager.socket.emit(this.oGameManager.iBattleId, {
+			sTaskName: "reqSetWildCardColor", oData: { eColor: color }
+		}, (error, data) => {
+			console.warn("reqSetWildCardColor", error, data);
+		})
+	}
+	requestForDraw4() {
+		this.oSocketManager.socket.emit(this.oGameManager.iBattleId, {
+			sTaskName: "reqUno", oData: {}
+		}, (error, data) => {
+			console.warn("reqUno", error, data);
 		})
 	}
 

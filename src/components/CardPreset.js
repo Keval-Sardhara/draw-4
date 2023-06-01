@@ -22,10 +22,12 @@ class CardPreset extends UserComponent {
 		this.gameObjectPreset.on("pointerdown", (pointer) => {
 			this.lastPosX = pointer.x;
 			this.lastPosY = pointer.y;
-			let parentContainerName = this.gameObjectPreset.parentContainer.name;
-			console.log(parentContainerName);
-			this.handleParantContainerOperation(parentContainerName , this,gameObject);
-
+			// let parentContainerName = this.gameObjectPreset.parentContainer.name;
+			// this.handleParantContainerOperation(parentContainerName, this.gameObjectPreset);
+			// console.log("handleParantContainerOperation",parentContainerName);
+			this.gameObject.scene.oCardManager.arrangeHandCardPosition();
+			this.gameObjectPreset.x = pointer.x;
+			this.gameObjectPreset.y = pointer.y;
 		});
 		this.gameObjectPreset.on("pointerup", () => {
 
@@ -37,19 +39,16 @@ class CardPreset extends UserComponent {
 		this.gameObjectPreset.on("dragend", (pointer, dragX, dragY) => {
 			this.gameObjectPreset.x = pointer.x - dragX;
 			this.gameObjectPreset.y = pointer.y - dragY;
-		    if(pointer.x >= 375 && pointer.y >= 225 && pointer.x <= 435 && pointer.y <= 305){
-				console.log("center");
+			if (pointer.x >= 375 && pointer.y >= 225 && pointer.x <= 435 && pointer.y <= 305) {
 				this.gameObject.scene.discardPileTopCardContainer.add(this.gameObjectPreset);
-				for(let i =0 ; i < this.gameObject.scene.discardPileTopCardContainer.list.length ; i++){
-					console.log(this.gameObject.scene.discardPileTopCardContainer.list[i].name);
-				}
-				this.discardCardId = this.gameObject.scene.discardPileTopCardContainer.list[this.gameObject.scene.discardPileTopCardContainer.list.length -1].name; 
-				// console.log("discardCardId", this.discardCardId);
+				console.log("discardCondtainer",this.gameObject.scene.discardPileTopCardContainer);
+				this.discardCardId = this.gameObject.scene.discardPileTopCardContainer.list[this.gameObject.scene.discardPileTopCardContainer.list.length - 1].name;
 				this.gameObject.scene.sendDiscardPileCard(this.discardCardId);
+				this.gameObject.scene.oCardManager.arrangeHandCardPosition();
 			} else {
-				console.log("Hand")
 				this.gameObjectPreset.setPosition(parseFloat(this.lastPosX), parseFloat(this.lastPosY));
 				this.gameObject.scene.playerHandcontainer.add(this.gameObjectPreset);
+				this.gameObjectPreset.scene.oCardManager.arrangeHandCardPosition();
 			}
 		})
 		/* END-USER-CTR-CODE */
@@ -66,11 +65,12 @@ class CardPreset extends UserComponent {
 	/* START-USER-CODE */
 
 	// Write your code here.
-	handleParantContainerOperation(parentContainerName ,cardPreset ){
-		switch(parentContainerName){
+	handleParantContainerOperation(parentContainerName, cardObject) {
+		switch (parentContainerName) {
 			case "playerHandcontainer":
-			this.gameObject.scene.playerHandcontainer.remove(cardPreset);
-			break;
+				this.gameObject.scene.playerHandcontainer.remove(cardObject);
+				console.log("1", this.gameObject.scene.playerHandcontainer);
+				break;
 		}
 	}
 

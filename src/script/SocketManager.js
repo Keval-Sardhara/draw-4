@@ -57,31 +57,33 @@ class SocketManager {
                     this.oScene.oTweenManager.cardDistribute(data.oData);
                     break;
                 case "resDiscardPileTopCard":
-                    console.log("resDiscardPileTopCard :", data);
                     this.oScene.oCardManager.setDiscardPileTopCard(data.oData.oDiscardPileTopCard);
                 case "resDrawCard":
-                    console.log("resDrawCard:", data);
+                    console.log(" %c resDrawCard:", "background: red; ", data);
                     this.oScene.oCardManager.setDrawCard(data)
                     break;
                 case "resInitMasterTimer":
-                    console.log("resInitMasterTimer:", data);
                     break;
                 case "resTurnTimer":
-                    console.log("resTurnTimer:", data);
                     this.oScene.oPlayerManager.changePlayerTurn(data.oData);
+                    this.oScene.oCardManager.setPlayableCards(data.oData);
                     break;
                 case "resTurnMissed":
-                    console.log("resTurnMissed:", data);
                     break;
                 case "resDiscardPile":
                     console.log("resDiscardPile:", data);
                     this.oScene.oCardManager.setDiscardPileTopCard(data.oData.oCard);
+                    if (data.oData.iPlayerId == this.oScene.oGameManager.ownPlayerId) {
+                        if (data.oData.oCard.nLabel == 13 || data.oData.oCard.nLabel == 14) {
+                            this.oScene.wildCardColorContainer.visible = true;
+                        }
+                    } else {
+                        console.log("OpponentSelectedColor", data.oData.eColor);
+                    }
                     break;
                 case "resPlayerLeft":
-                    console.log("resPlayerLeft:", data);
                     break;
                 case "resGameStatistics":
-                    console.log("resGameStatistics:", data);
                     break;
                 case "resGameOver":
                     console.log("resGameOver:", data);
@@ -97,6 +99,12 @@ class SocketManager {
                 case "resReverseTurn":
                     console.log("resReverseTurn", data);
                     this.oScene.oTweenManager.reverseTurn(data.oData);
+                case "resWildCardColor":
+                    console.log("resWildCardColor:", data);
+                    //
+                    break;
+                case "resUnoDeclare":
+                    console.log("resUnoDeclare:", data);
                     break;
                 default:
                     console.log("%c New Event !!!!!!", "background: red; ", data.sTaskName, data);

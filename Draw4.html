@@ -127,7 +127,8 @@
 				console.log("JT", response.data);
 				const oData = response.data;
 				const oPlayerData = oData.playerData;
-				const gameUrl = "http://127.0.0.1:3408/editor/external/?";
+				// const gameUrl = "http://127.0.0.1:3408/editor/external/?";
+				const gameUrl = "http://127.0.0.1:4253/editor/external/?";
 				let passString = "iBattleId=" + oData.tableData.iBattleId + "&";
 				passString = passString + "sPlayerID=" + oData.playerData.iPlayerId + "&";
 				passString = passString + "sAuthToken=" + authToken + "&";
