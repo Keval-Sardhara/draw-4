@@ -32,17 +32,6 @@ class Level extends Phaser.Scene {
 		background.scaleY = 0.555;
 		backgroundContainer.add(background);
 
-		// round_aero
-		const round_aero = this.add.image(0, 0, "round-aero");
-		round_aero.scaleX = 0.3;
-		round_aero.scaleY = 0.3;
-		round_aero.alpha = 0.5;
-		round_aero.alphaTopLeft = 0.5;
-		round_aero.alphaTopRight = 0.5;
-		round_aero.alphaBottomLeft = 0.5;
-		round_aero.alphaBottomRight = 0.5;
-		backgroundContainer.add(round_aero);
-
 		// draw_button
 		const draw_button = this.add.image(270, 95, "draw-button");
 		draw_button.scaleX = 0.1;
@@ -66,6 +55,21 @@ class Level extends Phaser.Scene {
 		icon_08.scaleX = 0.5;
 		icon_08.scaleY = 0.5;
 		backgroundContainer.add(icon_08);
+
+		// roundAeroContainer
+		const roundAeroContainer = this.add.container(400, 260);
+
+		// round_aero
+		const round_aero = this.add.image(0, 0, "round-aero");
+		round_aero.scaleX = 0.3;
+		round_aero.scaleY = 0.3;
+		round_aero.visible = false;
+		round_aero.alpha = 0.5;
+		round_aero.alphaTopLeft = 0.5;
+		round_aero.alphaTopRight = 0.5;
+		round_aero.alphaBottomLeft = 0.5;
+		round_aero.alphaBottomRight = 0.5;
+		roundAeroContainer.add(round_aero);
 
 		// playerProfileContainer
 		const playerProfileContainer = this.add.container(0, 0);
@@ -187,11 +191,12 @@ class Level extends Phaser.Scene {
 		winnerTitleContainer.add(txtPrizeTitle);
 
 		this.backgroundContainer = backgroundContainer;
-		this.round_aero = round_aero;
 		this.draw_button = draw_button;
 		this.draw4_button = draw4_button;
 		this.draw4_card = draw4_card;
 		this.icon_08 = icon_08;
+		this.roundAeroContainer = roundAeroContainer;
+		this.round_aero = round_aero;
 		this.playerProfileContainer = playerProfileContainer;
 		this.ownPlayerProfile = ownPlayerProfile;
 		this.playerProfile_2 = playerProfile_2;
@@ -214,8 +219,6 @@ class Level extends Phaser.Scene {
 	/** @type {Phaser.GameObjects.Container} */
 	backgroundContainer;
 	/** @type {Phaser.GameObjects.Image} */
-	round_aero;
-	/** @type {Phaser.GameObjects.Image} */
 	draw_button;
 	/** @type {Phaser.GameObjects.Image} */
 	draw4_button;
@@ -223,6 +226,10 @@ class Level extends Phaser.Scene {
 	draw4_card;
 	/** @type {Phaser.GameObjects.Image} */
 	icon_08;
+	/** @type {Phaser.GameObjects.Container} */
+	roundAeroContainer;
+	/** @type {Phaser.GameObjects.Image} */
+	round_aero;
 	/** @type {Phaser.GameObjects.Container} */
 	playerProfileContainer;
 	/** @type {PlayerProfile} */

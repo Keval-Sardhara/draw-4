@@ -7,6 +7,6 @@ class GameManager {
         this.sPlayerName = "";
         this.isOwnTurn = false;
         this.cardGap = 25;
-
+        this.bTurnClockwise = true;
     }
 }

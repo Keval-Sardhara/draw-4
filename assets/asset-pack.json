@@ -372,9 +372,19 @@
                 "key": "red botten"
             },
             {
+                "url": "assets/images/icons/reverse.png",
+                "type": "image",
+                "key": "reverse"
+            },
+            {
                 "url": "assets/images/round-aero.png",
                 "type": "image",
                 "key": "round-aero"
+            },
+            {
+                "url": "assets/images/icons/skip-blue.png",
+                "type": "image",
+                "key": "skip-blue"
             },
             {
                 "url": "src/script/SocketManager.js",

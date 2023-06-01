@@ -90,12 +90,18 @@ class SocketManager {
                 case "playerDisconnected":
                     console.log("playerDisconnected:", data);
                     break;
+                case "resUserSkip":
+                    console.log("resUserSkip", data);
+                    this.oScene.oTweenManager.skipCardAnimation(data.oData);
+                    break;
+                case "resReverseTurn":
+                    console.log("resReverseTurn", data);
+                    this.oScene.oTweenManager.reverseTurn(data.oData);
+                    break;
                 default:
                     console.log("%c New Event !!!!!!", "background: red; ", data.sTaskName, data);
                     break;
             }
-
-
         }
     }
 }

@@ -30,23 +30,6 @@
                 },
                 {
                     "type": "Image",
-                    "id": "b08a28bf-8c24-40af-a1f2-6abaa7f195fb",
-                    "label": "round_aero",
-                    "scope": "CLASS",
-                    "components": [],
-                    "texture": {
-                        "key": "round-aero"
-                    },
-                    "scaleX": 0.3,
-                    "scaleY": 0.3,
-                    "alpha": 0.5,
-                    "alphaTopLeft": 0.5,
-                    "alphaTopRight": 0.5,
-                    "alphaBottomLeft": 0.5,
-                    "alphaBottomRight": 0.5
-                },
-                {
-                    "type": "Image",
                     "id": "bcc729df-e4e5-4f78-898b-4f05694d2fcb",
                     "label": "draw_button",
                     "scope": "CLASS",
@@ -100,6 +83,35 @@
                     "y": -192,
                     "scaleX": 0.5,
                     "scaleY": 0.5
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "1a87f619-7f0f-41d1-925d-0cae2959d76e",
+            "label": "roundAeroContainer",
+            "scope": "CLASS",
+            "components": [],
+            "x": 400,
+            "y": 260,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "b08a28bf-8c24-40af-a1f2-6abaa7f195fb",
+                    "label": "round_aero",
+                    "scope": "CLASS",
+                    "components": [],
+                    "texture": {
+                        "key": "round-aero"
+                    },
+                    "scaleX": 0.3,
+                    "scaleY": 0.3,
+                    "visible": false,
+                    "alpha": 0.5,
+                    "alphaTopLeft": 0.5,
+                    "alphaTopRight": 0.5,
+                    "alphaBottomLeft": 0.5,
+                    "alphaBottomRight": 0.5
                 }
             ]
         },
