@@ -101,10 +101,13 @@ class SocketManager {
                     this.oScene.oTweenManager.reverseTurn(data.oData);
                 case "resWildCardColor":
                     console.log("resWildCardColor:", data);
-                    //
                     break;
                 case "resUnoDeclare":
                     console.log("resUnoDeclare:", data);
+                    break;
+                case "resGameInitializeTimer":
+                    console.log("resGameInitializeTimer", data);
+                    this.oScene.gameInitializeTimer(data.oData);
                     break;
                 default:
                     console.log("%c New Event !!!!!!", "background: red; ", data.sTaskName, data);

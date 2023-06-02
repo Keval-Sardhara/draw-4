@@ -71,6 +71,13 @@ class Level extends Phaser.Scene {
 		rectangle_2.isFilled = true;
 		backgroundContainer.add(rectangle_2);
 
+		// txtInitializeTimer
+		const txtInitializeTimer = this.add.text(0, 0, "", {});
+		txtInitializeTimer.setOrigin(0.5, 0.5);
+		txtInitializeTimer.visible = false;
+		txtInitializeTimer.setStyle({ "fontSize": "50px" });
+		backgroundContainer.add(txtInitializeTimer);
+
 		// roundAeroContainer
 		const roundAeroContainer = this.add.container(400, 260);
 
@@ -397,6 +404,7 @@ class Level extends Phaser.Scene {
 		this.draw4_button = draw4_button;
 		this.draw4_card = draw4_card;
 		this.btnMenuOpen = btnMenuOpen;
+		this.txtInitializeTimer = txtInitializeTimer;
 		this.roundAeroContainer = roundAeroContainer;
 		this.round_aero = round_aero;
 		this.playerProfileContainer = playerProfileContainer;
@@ -450,6 +458,8 @@ class Level extends Phaser.Scene {
 	draw4_card;
 	/** @type {Phaser.GameObjects.Image} */
 	btnMenuOpen;
+	/** @type {Phaser.GameObjects.Text} */
+	txtInitializeTimer;
 	/** @type {Phaser.GameObjects.Container} */
 	roundAeroContainer;
 	/** @type {Phaser.GameObjects.Image} */
@@ -547,6 +557,25 @@ class Level extends Phaser.Scene {
 		this.oTweenManager = new TweenManager(this);
 
 	}
+
+	gameInitializeTimer(oData) {
+		let time = oData.ttl / 1000;
+		this.txtInitializeTimer.visible = true;
+
+		this.initializeTimer = setInterval(() => {
+			time--;
+			this.txtInitializeTimer.setText(time);
+			this.oTweenManager.initializeTimerAnimation(this.txtInitializeTimer);
+
+			if (time < 0) {
+				clearInterval(this.initializeTimer)
+				this.txtInitializeTimer.visible = false;
+				this.oTweenManager.initializeTimerTween.stop();
+			}
+		}, 1000)
+	}
+
+
 	reqDrawCard() {
 		console.log("onClickdrawCard")
 		this.oSocketManager.socket.emit(this.oGameManager.iBattleId, {

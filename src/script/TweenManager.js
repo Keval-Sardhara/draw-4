@@ -15,6 +15,17 @@ class TweenManager {
             ease: 'Linear',
         })
     }
+
+    initializeTimerAnimation(targetName) {
+        this.initializeTimerTween = this.oScene.tweens.add({
+            targets: targetName,
+            scaleY: { from: 0.7, to: 1, from: 1, to: 0.7 },
+            scaleX: { from: 0.7, to: 1, from: 1, to: 0.7 },
+            duration: 300,
+            ease: 'Linear',
+        })
+    }
+
     popupClose(targetName) {
         this.oScene.tweens.add({
             targets: targetName,
