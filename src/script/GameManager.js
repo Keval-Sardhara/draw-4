@@ -8,6 +8,7 @@ class GameManager {
         this.isOwnTurn = false;
         this.cardGap = 25;
         this.bTurnClockwise = true;
+        this.currentCardId = " ";
     }
     setReverseTurn(data){
         if(data.oData.bTurnClockwise == false){

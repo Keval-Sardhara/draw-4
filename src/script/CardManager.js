@@ -2,11 +2,17 @@ class CardManager {
     constructor(oScene) {
         this.oScene = oScene;
     }
-
-    //setcards on PlayerHand
+    setCardData(id,color,lable, x ,y, containerName) {
+        this.tempCard1 = this.oScene.add.existing(new CardPrefab(this.oScene, x,y));
+        this.tempCard1.cardId = id;
+        this.tempCard1.cardColor = color;
+        this.tempCard1.cardNumber = lable;
+        this.tempCard1.cardImage.setTexture("card-"+color+"-"+lable);
+        this.tempCard1.setName(id);
+        containerName.add(this.tempCard1);
+    }
     setPlayerHand(data) {
         let nPlayerCard = 0;
-
         for (let i = 0; i < data.aHand.length; i++) {
             this.tempCard = this.oScene.add.existing(new CardPrefab(this.oScene, (this.oScene.playerHandcontainer.getAll().length * this.oScene.oGameManager.cardGap), 510));
             this.tempCard.cardImage.setTexture("card-" + data.aHand[nPlayerCard].eColor + "-" + data.aHand[nPlayerCard].nLabel);
@@ -16,28 +22,26 @@ class CardManager {
         }
         this.oScene.playerHandcontainer.x = (800 - ((this.oScene.playerHandcontainer.getAll().length - 1) * this.oScene.oGameManager.cardGap)) / 2;
     }
-    // setCard on discardPile
     setDiscardPileTopCard(data) {
-        this.tempDiscardCard = this.oScene.add.existing(new CardPrefab(this.oScene, 400, 265));
-        this.tempDiscardCard.cardImage.setTexture("card-" + data.eColor + "-" + data.nLabel);
-        this.tempDiscardCard.setName(data.iCardId);
-        this.oScene.discardPileTopCardContainer.add(this.tempDiscardCard);
-        console.log(this.oScene.discardPileTopCardContainer);
+        this.tempCard1 = this.oScene.add.existing(new CardPrefab(this.oScene, 400,265));
+        this.tempCard1.cardImage.setTexture("card-"+data.eColor+"-"+data.nLabel);
+        this.tempCard1.setName(data.iCardId);
+        this.oScene.discardPileTopCardContainer.add(this.tempCard1);
+        this.tempCard1.disableInteractive();
     }
-    // setcard on hand
     setDrawCard(data) {
-        if (data.sTaskName === "resDrawCard") {
+        if (data.sTaskName == "resDiscardPileTopCard") {
+            let cards = data.oData.oDiscardPileTopCard;
+            this.setDiscardPileTopCard(cards)
+        } else {
             let cards = data.oData.aCard;
-            console.log("%c from Card Manager :::", "background:yellow;", cards);
             if (data.oData.bIsPlayable) {
                 this.oScene.isPlayableCardContainer.visible = true;
                 for (let i = 0; i < cards.length; i++) {
-                    this.tempCard1 = this.oScene.add.existing(new CardPrefab(this.oScene, 398, 404));
-                    this.tempCard1.setScale(0.7);
-                    this.tempCard1.cardImage.setTexture("card-" + cards[i].eColor + "-" + cards[i].nLabel);
-                    this.tempCard1.setName(cards[i].iCardId);
-                    this.oScene.isPlayCardCont.add(this.tempCard1);
-                    console.log(this.oScene.isPlayCardCont);
+                    this.centerCard = this.oScene.add.existing(new CardPrefab(this.oScene, 398,404));
+                    this.centerCard.cardImage.setTexture("card-" + cards[i].eColor +"-" + cards[i].nLabel);
+                    this.centerCard.setName(cards[i].iCardId);
+                    
                 }
             } else {
                 this.setCardonHand(cards);
@@ -47,10 +51,9 @@ class CardManager {
     }
     setCardonHand(cards) {
         for (let i = 0; i < cards.length; i++) {
-            this.tempCard1 = this.oScene.add.existing(new CardPrefab(this.oScene, (this.oScene.playerHandcontainer.getAll().length * this.oScene.oGameManager.cardGap), 510));
-            this.tempCard1.cardImage.setTexture("card-" + cards[i].eColor + "-" + cards[i].nLabel);
-            this.tempCard1.setName(cards[i].iCardId);
-            this.oScene.playerHandcontainer.add(this.tempCard1);
+            let posX = this.oScene.playerHandcontainer.getAll().length * this.oScene.oGameManager.cardGap;
+            let PosY = 510;
+            this.setCardData(cards[i].iCardId,cards[i].eColor,cards[i].nLabel,posX,PosY,this.oScene.playerHandcontainer)
         }
     }
     setPlayableCards(data) {

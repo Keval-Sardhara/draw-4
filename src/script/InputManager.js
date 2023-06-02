@@ -6,12 +6,15 @@ class InputManager {
         })
         this.oScene.keep_butten.setInteractive().on('pointerdown', () => {
             this.oScene.isPlayableCardContainer.visible = false;
-            this.oScene.oSocketManager.socket.emit(this.oScene.oGameManager.iBattleId, { sTaskName: "reqKeepCard", oData: {} })
+            this.oScene.oSocketManager.socket.emit(this.oScene.oGameManager.iBattleId, { sTaskName: "reqKeepCard", oData: {}}, (error, data) => {
+                console.warn("reqKeepCard", error, data)})
+                this.oScene.playerHandcontainer.add(this.oScene.oCardManager.centerCard);
         })
         this.oScene.play_butten.setInteractive().on('pointerdown', () => {
             this.oScene.isPlayableCardContainer.visible = false;
-
-            this.oScene.sendDiscardPileCard();
+             let discardCard = this.oScene.oCardManager.centerCard.name;
+            this.oScene.sendDiscardPileCard(discardCard);
+            this.oScene.oCardManager.centerCard.setVisible(false);
         })
         this.oScene.redBtn.setInteractive().on('pointerdown', () => {
             let color = "red";

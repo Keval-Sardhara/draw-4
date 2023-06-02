@@ -16,7 +16,38 @@
             "name": "CardPreset",
             "baseClass": "UserComponent",
             "gameObjectType": "Phaser.GameObjects.Container",
-            "properties": []
+            "properties": [
+                {
+                    "name": "cardId",
+                    "label": "cardId",
+                    "tooltip": "cardId",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "cardColor",
+                    "label": "cardColor",
+                    "tooltip": "cardColor",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "cardNumber",
+                    "label": "cardColor",
+                    "tooltip": "cardColor",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                }
+            ]
         }
     ],
     "meta": {

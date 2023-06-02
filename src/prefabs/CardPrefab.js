@@ -23,6 +23,9 @@ class CardPrefab extends Phaser.GameObjects.Container {
 		// Write your code here.
 		this.oScene = scene;
 		this.oScene.input.setDraggable(this);
+		this.cardId = ""
+		this.cardColor = ""
+		this.cardNumber = ""
 
 		/* END-USER-CTR-CODE */
 	}

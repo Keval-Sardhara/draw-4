@@ -309,7 +309,7 @@
                     "label": "playTxt",
                     "scope": "CLASS",
                     "components": [],
-                    "x": 331,
+                    "x": 330,
                     "y": 409,
                     "originX": 0.5,
                     "originY": 0.5,
@@ -802,6 +802,21 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "Image",
+            "id": "c3f1d6e4-2fb6-484d-9acd-6f4dc5fc526b",
+            "label": "disbleCard1",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "card-black-14"
+            },
+            "x": 402,
+            "y": 264,
+            "scaleX": 0.2,
+            "scaleY": 0.2,
+            "visible": false
         }
     ],
     "plainObjects": [],

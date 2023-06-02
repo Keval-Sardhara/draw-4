@@ -20,35 +20,35 @@ class CardPreset extends UserComponent {
 		this.gameObjectPreset = this.gameObject.setInteractive();
 		this.gameObjectPreset.input.cursor = "pointer";
 		this.gameObjectPreset.on("pointerdown", (pointer) => {
+			console.log(this.gameObjectPreset);
 			this.lastPosX = pointer.x;
 			this.lastPosY = pointer.y;
-			// let parentContainerName = this.gameObjectPreset.parentContainer.name;
-			// this.handleParantContainerOperation(parentContainerName, this.gameObjectPreset);
-			// console.log("handleParantContainerOperation",parentContainerName);
-			this.gameObject.scene.oCardManager.arrangeHandCardPosition();
 			this.gameObjectPreset.x = pointer.x;
 			this.gameObjectPreset.y = pointer.y;
+			let parentContainerName = this.gameObjectPreset.parentContainer.name;
+			console.log("123",this.gameObjectPreset.parentContainer.name ,this.gameObjectPreset)
+			this.handleParantContainerOperation(parentContainerName,this.gameObjectPreset);
 		});
 		this.gameObjectPreset.on("pointerup", () => {
 
 		});
 		this.gameObjectPreset.on("drag", (pointer, dragX, dragY) => {
-			this.gameObjectPreset.x = dragX;
-			this.gameObjectPreset.y = dragY;
+			this.gameObjectPreset.x = pointer.x;
+			this.gameObjectPreset.y = pointer.y;
 		});
 		this.gameObjectPreset.on("dragend", (pointer, dragX, dragY) => {
 			this.gameObjectPreset.x = pointer.x - dragX;
 			this.gameObjectPreset.y = pointer.y - dragY;
-			if (pointer.x >= 375 && pointer.y >= 225 && pointer.x <= 435 && pointer.y <= 305) {
-				this.gameObject.scene.discardPileTopCardContainer.add(this.gameObjectPreset);
-				console.log("discardCondtainer",this.gameObject.scene.discardPileTopCardContainer);
-				this.discardCardId = this.gameObject.scene.discardPileTopCardContainer.list[this.gameObject.scene.discardPileTopCardContainer.list.length - 1].name;
-				this.gameObject.scene.sendDiscardPileCard(this.discardCardId);
+			if (this.gameObjectPreset.x >= 375 && this.gameObjectPreset.y >= 225 && this.gameObjectPreset.x <= 435 && this.gameObjectPreset.y <= 305) {
+				this.gameObjectPreset.setPosition(this.gameObject.scene.disbleCard1.x, this.gameObject.scene.disbleCard1.y);
+				this.gameObjectPreset.setVisible(false);
+				console.log(this.gameObjectPreset.name);
+				this.gameObject.scene.sendDiscardPileCard(this.gameObjectPreset.name);
 				this.gameObject.scene.oCardManager.arrangeHandCardPosition();
 			} else {
 				this.gameObjectPreset.setPosition(parseFloat(this.lastPosX), parseFloat(this.lastPosY));
 				this.gameObject.scene.playerHandcontainer.add(this.gameObjectPreset);
-				this.gameObjectPreset.scene.oCardManager.arrangeHandCardPosition();
+				this.gameObject.scene.oCardManager.arrangeHandCardPosition();
 			}
 		})
 		/* END-USER-CTR-CODE */
@@ -61,19 +61,25 @@ class CardPreset extends UserComponent {
 
 	/** @type {Phaser.GameObjects.Container} */
 	gameObject;
+	/** @type {string} */
+	cardId = "";
+	/** @type {string} */
+	cardColor = "";
+	/** @type {string} */
+	cardNumber = "";
 
 	/* START-USER-CODE */
 
 	// Write your code here.
 	handleParantContainerOperation(parentContainerName, cardObject) {
+		console.log("containerName",parentContainerName);
 		switch (parentContainerName) {
 			case "playerHandcontainer":
-				this.gameObject.scene.playerHandcontainer.remove(cardObject);
-				console.log("1", this.gameObject.scene.playerHandcontainer);
+				console.log("cardObject", cardObject,"parentContainerName", parentContainerName);
+				this.gameObjectPreset.scene.playerHandcontainer.remove(cardObject);
 				break;
 		}
 	}
-
 	/* END-USER-CODE */
 }
 

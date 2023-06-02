@@ -149,7 +149,7 @@ class Level extends Phaser.Scene {
 		isPlayableCardContainer.add(keep_butten);
 
 		// playTxt
-		const playTxt = this.add.text(331, 409, "", {});
+		const playTxt = this.add.text(330, 409, "", {});
 		playTxt.setOrigin(0.5, 0.5);
 		playTxt.text = "Play";
 		playTxt.setStyle({ "fontSize": "20" });
@@ -399,6 +399,12 @@ class Level extends Phaser.Scene {
 		txtPrizeTitle.text = "Prize";
 		winnerTitleContainer.add(txtPrizeTitle);
 
+		// disbleCard1
+		const disbleCard1 = this.add.image(402, 264, "card-black-14");
+		disbleCard1.scaleX = 0.2;
+		disbleCard1.scaleY = 0.2;
+		disbleCard1.visible = false;
+
 		this.backgroundContainer = backgroundContainer;
 		this.draw_button = draw_button;
 		this.draw4_button = draw4_button;
@@ -444,6 +450,7 @@ class Level extends Phaser.Scene {
 		this.txtNameTitle = txtNameTitle;
 		this.txtScoreTitle = txtScoreTitle;
 		this.txtPrizeTitle = txtPrizeTitle;
+		this.disbleCard1 = disbleCard1;
 
 		this.events.emit("scene-awake");
 	}
@@ -538,6 +545,8 @@ class Level extends Phaser.Scene {
 	txtScoreTitle;
 	/** @type {Phaser.GameObjects.Text} */
 	txtPrizeTitle;
+	/** @type {Phaser.GameObjects.Image} */
+	disbleCard1;
 
 	/* START-USER-CODE */
 
